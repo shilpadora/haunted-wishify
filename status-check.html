@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎃 Spooky Web Builder - Status Check</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #f8fafc;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 3rem;
+            color: #ff6b35;
+            text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.2rem;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .status-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid #374151;
+            border-radius: 12px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .status-card h3 {
+            color: #8b5cf6;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(55, 65, 81, 0.3);
+        }
+
+        .status-item:last-child {
+            border-bottom: none;
+        }
+
+        .status-indicator {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .status-success {
+            background: #10b981;
+            color: white;
+        }
+
+        .status-error {
+            background: #ef4444;
+            color: white;
+        }
+
+        .status-warning {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff6b35, #e55a2b);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn.secondary {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        .btn.accent {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .log {
+            background: #0a0a0a;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            margin-bottom: 4px;
+        }
+
+        .log-success {
+            color: #10b981;
+        }
+
+        .log-error {
+            color: #ef4444;
+        }
+
+        .log-warning {
+            color: #f59e0b;
+        }
+
+        .log-info {
+            color: #3b82f6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">🎃 Spooky Web Builder</h1>
+            <p class="subtitle">System Status & Diagnostics</p>
+        </div>
+
+        <div class="status-grid">
+            <div class="status-card">
+                <h3>📁 Core Files</h3>
+                <div id="core-files-status">
+                    <div class="status-item">
+                        <span>Checking files...</span>
+                        <span class="status-indicator status-warning">CHECKING</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <h3>🎭 Components</h3>
+                <div id="components-status">
+                    <div class="status-item">
+                        <span>Component Library</span>
+                        <span class="status-indicator status-warning">LOADING</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <h3>🎨 Features</h3>
+                <div id="features-status">
+                    <div class="status-item">
+                        <span>Drag & Drop</span>
+                        <span class="status-indicator status-warning">TESTING</span>
+                    </div>
+                    <div class="status-item">
+                        <span>Export System</span>
+                        <span class="status-indicator status-warning">TESTING</span>
+                    </div>
+                    <div class="status-item">
+                        <span>Audio Manager</span>
+                        <span class="status-indicator status-warning">TESTING</span>
+                    </div>
+                    <div class="status-item">
+                        <span>Effects Engine</span>
+                        <span class="status-indicator status-warning">TESTING</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <h3>🎬 Retro Landing</h3>
+                <div id="retro-status">
+                    <div class="status-item">
+                        <span>Sequence System</span>
+                        <span class="status-indicator status-success">READY</span>
+                    </div>
+                    <div class="status-item">
+                        <span>Interactive Demo</span>
+                        <span class="status-indicator status-success">READY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="index.html" class="btn">
+                🏗️ Launch Main Builder
+            </a>
+            <a href="retro-landing.html" class="btn secondary">
+                📺 Launch Retro Landing
+            </a>
+            <a href="test-builder.html" class="btn accent">
+                🧪 Run Tests
+            </a>
+        </div>
+
+        <div class="log" id="diagnostic-log">
+            <div class="log-entry log-info">🎃 Starting system diagnostics...</div>
+        </div>
+    </div>
+
+    <script>
+        class SystemDiagnostics {
+            constructor() {
+                this.log = document.getElementById('diagnostic-log');
+                this.coreFiles = [
+                    'js/core/builder-engine.js',
+                    'js/core/canvas-manager.js',
+                    'js/core/component-library.js',
+                    'js/core/audio-manager.js',
+                    'js/core/effects-engine.js',
+                    'js/core/export-system.js',
+                    'js/app.js'
+                ];
+                this.cssFiles = [
+                    'css/main.css',
+                    'css/components.css',
+                    'css/themes.css',
+                    'css/retro-landing.css'
+                ];
+            }
+
+            logMessage(message, type = 'info') {
+                const entry = document.createElement('div');
+                entry.className = `log-entry log-${type}`;
+                entry.textContent = `${new Date().toLocaleTimeString()} - ${message}`;
+                this.log.appendChild(entry);
+                this.log.scrollTop = this.log.scrollHeight;
+            }
+
+            updateStatus(containerId, itemText, status, statusText) {
+                const container = document.getElementById(containerId);
+                const items = container.querySelectorAll('.status-item');
+
+                for (const item of items) {
+                    if (item.querySelector('span').textContent.includes(itemText)) {
+                        const indicator = item.querySelector('.status-indicator');
+                        indicator.className = `status-indicator status-${status}`;
+                        indicator.textContent = statusText;
+                        break;
+                    }
+                }
+            }
+
+            async checkFile(url) {
+                try {
+                    const response = await fetch(url, { method: 'HEAD' });
+                    return response.ok;
+                } catch (error) {
+                    return false;
+                }
+            }
+
+            async checkCoreFiles() {
+                this.logMessage('Checking core JavaScript files...', 'info');
+
+                const coreFilesContainer = document.getElementById('core-files-status');
+                coreFilesContainer.innerHTML = '';
+
+                let allFilesOk = true;
+
+                for (const file of this.coreFiles) {
+                    const exists = await this.checkFile(file);
+                    const statusClass = exists ? 'success' : 'error';
+                    const statusText = exists ? 'OK' : 'MISSING';
+
+                    const item = document.createElement('div');
+                    item.className = 'status-item';
+                    item.innerHTML = `
+                        <span>${file}</span>
+                        <span class="status-indicator status-${statusClass}">${statusText}</span>
+                    `;
+                    coreFilesContainer.appendChild(item);
+
+                    if (exists) {
+                        this.logMessage(`✅ ${file} found`, 'success');
+                    } else {
+                        this.logMessage(`❌ ${file} missing`, 'error');
+                        allFilesOk = false;
+                    }
+                }
+
+                return allFilesOk;
+            }
+
+            async checkCSS() {
+                this.logMessage('Checking CSS files...', 'info');
+
+                for (const file of this.cssFiles) {
+                    const exists = await this.checkFile(file);
+                    if (exists) {
+                        this.logMessage(`✅ ${file} found`, 'success');
+                    } else {
+                        this.logMessage(`⚠️ ${file} missing`, 'warning');
+                    }
+                }
+            }
+
+            async testComponentLibrary() {
+                this.logMessage('Testing component library...', 'info');
+
+                try {
+                    // Try to load and instantiate component library
+                    const script = document.createElement('script');
+                    script.src = 'js/core/component-library.js';
+
+                    script.onload = () => {
+                        if (typeof ComponentLibrary !== 'undefined') {
+                            this.logMessage('✅ ComponentLibrary class available', 'success');
+                            this.updateStatus('components-status', 'Component Library', 'success', 'OK');
+                        } else {
+                            this.logMessage('❌ ComponentLibrary class not found', 'error');
+                            this.updateStatus('components-status', 'Component Library', 'error', 'ERROR');
+                        }
+                    };
+
+                    script.onerror = () => {
+                        this.logMessage('❌ Failed to load component library', 'error');
+                        this.updateStatus('components-status', 'Component Library', 'error', 'ERROR');
+                    };
+
+                    document.head.appendChild(script);
+                } catch (error) {
+                    this.logMessage(`❌ Component library error: ${error.message}`, 'error');
+                    this.updateStatus('components-status', 'Component Library', 'error', 'ERROR');
+                }
+            }
+
+            async testFeatures() {
+                this.logMessage('Testing core features...', 'info');
+
+                // Test drag and drop support
+                const dragSupported = 'draggable' in document.createElement('div');
+                if (dragSupported) {
+                    this.logMessage('✅ Drag & Drop API supported', 'success');
+                    this.updateStatus('features-status', 'Drag & Drop', 'success', 'SUPPORTED');
+                } else {
+                    this.logMessage('❌ Drag & Drop API not supported', 'error');
+                    this.updateStatus('features-status', 'Drag & Drop', 'error', 'NOT SUPPORTED');
+                }
+
+                // Test Web Audio API
+                const audioSupported = !!(window.AudioContext || window.webkitAudioContext);
+                if (audioSupported) {
+                    this.logMessage('✅ Web Audio API supported', 'success');
+                    this.updateStatus('features-status', 'Audio Manager', 'success', 'SUPPORTED');
+                } else {
+                    this.logMessage('⚠️ Web Audio API not supported, fallback available', 'warning');
+                    this.updateStatus('features-status', 'Audio Manager', 'warning', 'FALLBACK');
+                }
+
+                // Test Canvas API
+                const canvasSupported = !!document.createElement('canvas').getContext;
+                if (canvasSupported) {
+                    this.logMessage('✅ Canvas API supported', 'success');
+                    this.updateStatus('features-status', 'Effects Engine', 'success', 'SUPPORTED');
+                } else {
+                    this.logMessage('❌ Canvas API not supported', 'error');
+                    this.updateStatus('features-status', 'Effects Engine', 'error', 'NOT SUPPORTED');
+                }
+
+                // Test File API (for export)
+                const fileSupported = !!(window.File && window.FileReader && window.FileList && window.Blob);
+                if (fileSupported) {
+                    this.logMessage('✅ File API supported', 'success');
+                    this.updateStatus('features-status', 'Export System', 'success', 'SUPPORTED');
+                } else {
+                    this.logMessage('❌ File API not supported', 'error');
+                    this.updateStatus('features-status', 'Export System', 'error', 'NOT SUPPORTED');
+                }
+            }
+
+            async runDiagnostics() {
+                this.logMessage('🎃 Starting comprehensive system check...', 'info');
+
+                // Check core files
+                const coreFilesOk = await this.checkCoreFiles();
+
+                // Check CSS files
+                await this.checkCSS();
+
+                // Test component library
+                await this.testComponentLibrary();
+
+                // Test features
+                await this.testFeatures();
+
+                // Final status
+                if (coreFilesOk) {
+                    this.logMessage('🎉 System check complete! Builder should be functional.', 'success');
+                } else {
+                    this.logMessage('⚠️ System check complete with issues. Some features may not work.', 'warning');
+                }
+
+                this.logMessage('📝 Check the status cards above for detailed information.', 'info');
+                this.logMessage('🚀 Ready to launch the Spooky Web Builder!', 'success');
+            }
+        }
+
+        // Run diagnostics when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const diagnostics = new SystemDiagnostics();
+            diagnostics.runDiagnostics();
+        });
+    </script>
+</body>
+
+</html>

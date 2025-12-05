@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎃 Spooky Web Builder</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="spooky-theme">
+    <!-- Header -->
+    <header class="builder-header">
+        <div class="header-left">
+            <h1 class="app-title">
+                <span class="skull">💀</span>
+                Spooky Web Builder
+                <span class="ghost">👻</span>
+            </h1>
+        </div>
+        <div class="header-center">
+            <div class="project-name">
+                <input type="text" id="project-name" value="Haunted Website" class="haunted-input">
+            </div>
+        </div>
+        <div class="header-right">
+            <a href="wishify-designer.html" class="haunted-btn wishify-link"
+                style="text-decoration: none; display: flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #ff6b9d, #c44569); color: white;">
+                <span class="icon">✨</span>
+                Wishify Designer
+            </a>
+            <button id="save-btn" class="haunted-btn primary">
+                <span class="icon">💾</span>
+                Seal in Crypt
+            </button>
+            <button id="preview-btn" class="haunted-btn secondary">
+                <span class="icon">👁️</span>
+                Open Portal
+            </button>
+            <button id="export-btn" class="haunted-btn accent">
+                <span class="icon">📦</span>
+                Summon Export
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="builder-main">
+        <!-- Component Palette -->
+        <aside class="component-palette">
+            <div class="palette-header">
+                <h2>👻 Component Graveyard</h2>
+            </div>
+            <div class="palette-content">
+                <div class="component-category">
+                    <h3>Ghostly Headers</h3>
+                    <div class="component-items">
+                        <div class="component-item" draggable="true" data-component-type="ghostly-header">
+                            <div class="component-preview">
+                                <h4 class="ghostly-text">Haunted Title</h4>
+                            </div>
+                            <span class="component-name">Ethereal Header</span>
+                        </div>
+                        <div class="component-item" draggable="true" data-component-type="dripping-header">
+                            <div class="component-preview">
+                                <h4 class="dripping-text">Dripping Title</h4>
+                            </div>
+                            <span class="component-name">Dripping Header</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-category">
+                    <h3>Haunted Buttons</h3>
+                    <div class="component-items">
+                        <div class="component-item" draggable="true" data-component-type="haunted-button">
+                            <div class="component-preview">
+                                <button class="haunted-btn">Spooky Button</button>
+                            </div>
+                            <span class="component-name">Haunted Button</span>
+                        </div>
+                        <div class="component-item" draggable="true" data-component-type="glowing-button">
+                            <div class="component-preview">
+                                <button class="glowing-btn">Glowing Button</button>
+                            </div>
+                            <span class="component-name">Glowing Button</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-category">
+                    <h3>Spectral Forms</h3>
+                    <div class="component-items">
+                        <div class="component-item" draggable="true" data-component-type="ghostly-input">
+                            <div class="component-preview">
+                                <input type="text" class="ghostly-input" placeholder="Enter your fears...">
+                            </div>
+                            <span class="component-name">Ghostly Input</span>
+                        </div>
+                        <div class="component-item" draggable="true" data-component-type="haunted-form">
+                            <div class="component-preview">
+                                <div class="mini-form">
+                                    <input type="text" class="ghostly-input" placeholder="Name">
+                                    <button class="haunted-btn">Submit</button>
+                                </div>
+                            </div>
+                            <span class="component-name">Haunted Form</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-category">
+                    <h3>Phantom Images</h3>
+                    <div class="component-items">
+                        <div class="component-item" draggable="true" data-component-type="phantom-image">
+                            <div class="component-preview">
+                                <div class="phantom-img">🖼️</div>
+                            </div>
+                            <span class="component-name">Phantom Image</span>
+                        </div>
+                        <div class="component-item" draggable="true" data-component-type="glitch-image">
+                            <div class="component-preview">
+                                <div class="glitch-img">📸</div>
+                            </div>
+                            <span class="component-name">Glitch Image</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-category">
+                    <h3>Cursed Text</h3>
+                    <div class="component-items">
+                        <div class="component-item" draggable="true" data-component-type="flickering-text">
+                            <div class="component-preview">
+                                <p class="flickering-text">Flickering Text</p>
+                            </div>
+                            <span class="component-name">Flickering Text</span>
+                        </div>
+                        <div class="component-item" draggable="true" data-component-type="cursed-paragraph">
+                            <div class="component-preview">
+                                <p class="cursed-text">Cursed paragraph...</p>
+                            </div>
+                            <span class="component-name">Cursed Paragraph</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-category">
+                    <h3>Spooky Templates</h3>
+                    <div class="component-items">
+                        <div class="component-item" draggable="true" data-component-type="retro-landing-page">
+                            <div class="component-preview">
+                                <div
+                                    style="background: #000; color: #00ff00; padding: 8px; font-size: 10px; text-align: center; border: 1px solid #333;">
+                                    📺 1995 Landing
+                                </div>
+                            </div>
+                            <span class="component-name">Retro Landing Page</span>
+                        </div>
+                        <div class="component-item" draggable="true" data-component-type="haunted-mansion-template">
+                            <div class="component-preview">
+                                <div
+                                    style="background: linear-gradient(135deg, #1a0a0a, #0a0a0a); color: #8b0000; padding: 8px; font-size: 10px; text-align: center; border: 1px solid #8b0000; border-radius: 4px;">
+                                    🏚️ Haunted Mansion<br>
+                                    <span style="font-size: 8px; color: #666;">Full Website</span>
+                                </div>
+                            </div>
+                            <span class="component-name">Haunted Mansion</span>
+                        </div>
+                        <div class="component-item" draggable="true" data-component-type="graveyard-portfolio-template">
+                            <div class="component-preview">
+                                <div
+                                    style="background: linear-gradient(135deg, #0a1a0a, #0a0a0a); color: #10b981; padding: 8px; font-size: 10px; text-align: center; border: 1px solid #10b981; border-radius: 4px;">
+                                    ⚰️ Digital Graveyard<br>
+                                    <span style="font-size: 8px; color: #666;">Portfolio Site</span>
+                                </div>
+                            </div>
+                            <span class="component-name">Graveyard Portfolio</span>
+                        </div>
+                        <div class="component-item" draggable="true" data-component-type="wishify-designer">
+                            <div class="component-preview">
+                                <div
+                                    style="background: linear-gradient(135deg, #ff6b9d, #c44569); color: white; padding: 8px; font-size: 10px; text-align: center; border: 1px solid #ff6b9d; border-radius: 4px;">
+                                    ✨ Wishify Designer<br>
+                                    <span style="font-size: 8px; color: #f0f0f0;">Greeting Cards</span>
+                                </div>
+                            </div>
+                            <span class="component-name">Wishify Designer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Canvas Area -->
+        <section class="canvas-container">
+            <div class="canvas-header">
+                <div class="canvas-controls">
+                    <button id="grid-toggle" class="control-btn active">
+                        <span class="icon">⚏</span>
+                        Grid
+                    </button>
+                    <button id="snap-toggle" class="control-btn active">
+                        <span class="icon">🧲</span>
+                        Snap
+                    </button>
+                    <div class="zoom-controls">
+                        <button id="zoom-out" class="control-btn">-</button>
+                        <span id="zoom-level">100%</span>
+                        <button id="zoom-in" class="control-btn">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas-wrapper">
+                <div id="canvas" class="canvas">
+                    <div class="canvas-background"></div>
+                    <div class="drop-zone">
+                        <div class="drop-message">
+                            <span class="ghost-icon">👻</span>
+                            <h3>Drag components from the graveyard to summon them here...</h3>
+                            <p>The spirits await your creative vision</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties Panel -->
+        <aside class="properties-panel">
+            <div class="panel-header">
+                <h2>🔮 Supernatural Properties</h2>
+            </div>
+            <div id="properties-content" class="panel-content">
+                <p class="no-selection">Select a component to customize its supernatural properties...</p>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Ghost Trail Canvas -->
+    <canvas id="ghost-trail" class="ghost-trail"></canvas>
+
+    <!-- Particle System Canvas -->
+    <canvas id="particles" class="particles"></canvas>
+
+    <!-- Audio Elements (Optional - will fallback to synthetic sounds if missing) -->
+    <audio id="audio-whisper" preload="none">
+        <source src="audio/whisper.mp3" type="audio/mpeg">
+        <source src="audio/whisper.ogg" type="audio/ogg">
+    </audio>
+    <audio id="audio-chains" preload="none">
+        <source src="audio/chains.mp3" type="audio/mpeg">
+        <source src="audio/chains.ogg" type="audio/ogg">
+    </audio>
+    <audio id="audio-creak" preload="none">
+        <source src="audio/creak.mp3" type="audio/mpeg">
+        <source src="audio/creak.ogg" type="audio/ogg">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="js/core/canvas-manager.js"></script>
+    <script src="js/core/component-library.js"></script>
+    <script src="js/core/effects-engine.js"></script>
+    <script src="js/core/audio-manager.js"></script>
+    <script src="js/core/export-system.js"></script>
+    <script src="js/core/builder-engine.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

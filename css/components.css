@@ -1,0 +1,562 @@
+/* Spooky Web Builder - Component Styles */
+
+/* Base Component Styles */
+.canvas-component {
+    position: absolute;
+    cursor: move;
+    transition: var(--transition-fast);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    min-width: 50px;
+    min-height: 30px;
+}
+
+.canvas-component:hover {
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+}
+
+.canvas-component.dragging {
+    opacity: 0.7;
+    transform: rotate(2deg);
+    z-index: 1000;
+}
+
+/* Resize Handles */
+.canvas-component.selected::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    border: 1px solid var(--color-text);
+    cursor: se-resize;
+    border-radius: 2px;
+}
+
+/* Ghostly Headers */
+.ghostly-header {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    text-shadow: var(--glow-white);
+    animation: ghostlyFloat 3s ease-in-out infinite;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(255, 107, 53, 0.1));
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+}
+
+@keyframes ghostlyFloat {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-3px) scale(1.02); }
+}
+
+.ghostly-text {
+    margin: 0;
+    font-size: 2rem;
+    background: linear-gradient(45deg, var(--color-text), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textGlow 2s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+}
+
+/* Dripping Headers */
+.dripping-header {
+    font-family: var(--font-accent);
+    position: relative;
+    padding: var(--spacing-md);
+}
+
+.dripping-text {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--color-secondary);
+    text-shadow: var(--glow-orange);
+    position: relative;
+}
+
+.dripping-text::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20%;
+    width: 60%;
+    height: 20px;
+    background: linear-gradient(to bottom, var(--color-secondary), transparent);
+    border-radius: 0 0 50% 50%;
+    animation: drip 4s ease-in-out infinite;
+}
+
+@keyframes drip {
+    0%, 90%, 100% { transform: scaleY(1); }
+    45% { transform: scaleY(1.5); }
+}
+
+/* Haunted Buttons */
+.haunted-button {
+    padding: var(--spacing-md);
+}
+
+.haunted-button .haunted-btn {
+    background: linear-gradient(135deg, var(--color-background), #2d3748);
+    border: 2px solid var(--color-secondary);
+    color: var(--color-text);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-normal);
+}
+
+.haunted-button .haunted-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.3), transparent);
+    transition: var(--transition-slow);
+}
+
+.haunted-button .haunted-btn:hover {
+    box-shadow: var(--glow-orange);
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
+}
+
+.haunted-button .haunted-btn:hover::before {
+    left: 100%;
+}
+
+.haunted-button .haunted-btn:active {
+    transform: translateY(0px) scale(0.98);
+}
+
+/* Glowing Buttons */
+.glowing-button {
+    padding: var(--spacing-md);
+}
+
+.glowing-button .glowing-btn {
+    background: var(--color-accent);
+    border: none;
+    color: var(--color-text);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: var(--glow-purple);
+    transition: var(--transition-normal);
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: var(--glow-purple); }
+    50% { box-shadow: 0 0 30px rgba(139, 92, 246, 0.8); }
+}
+
+.glowing-button .glowing-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 1);
+}
+
+/* Ghostly Inputs */
+.ghostly-input-component {
+    padding: var(--spacing-md);
+}
+
+.ghostly-input {
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 6px;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    width: 100%;
+    transition: var(--transition-normal);
+    backdrop-filter: blur(5px);
+}
+
+.ghostly-input::placeholder {
+    color: var(--color-text-dim);
+    font-style: italic;
+}
+
+.ghostly-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: var(--glow-purple);
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.ghostly-input:focus::placeholder {
+    opacity: 0.5;
+}
+
+/* Haunted Forms */
+.haunted-form {
+    background: rgba(26, 26, 26, 0.9);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.haunted-form .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.haunted-form label {
+    display: block;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-secondary);
+}
+
+.haunted-form .ghostly-input {
+    margin-bottom: var(--spacing-sm);
+}
+
+.haunted-form .haunted-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Phantom Images */
+.phantom-image {
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.phantom-img {
+    width: 200px;
+    height: 150px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(255, 107, 53, 0.2));
+    border: 2px dashed var(--color-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--color-text-dim);
+    transition: var(--transition-normal);
+    animation: phantomFade 4s ease-in-out infinite;
+    backdrop-filter: blur(5px);
+}
+
+@keyframes phantomFade {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+.phantom-img:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--glow-purple);
+    transform: scale(1.05);
+}
+
+/* Glitch Images */
+.glitch-image {
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.glitch-img {
+    width: 200px;
+    height: 150px;
+    background: var(--color-background);
+    border: 2px solid var(--color-secondary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--color-secondary);
+    position: relative;
+    overflow: hidden;
+    animation: glitchEffect 3s ease-in-out infinite;
+}
+
+@keyframes glitchEffect {
+    0%, 90%, 100% { transform: translate(0); }
+    10% { transform: translate(-2px, 2px); }
+    20% { transform: translate(2px, -2px); }
+    30% { transform: translate(-2px, -2px); }
+    40% { transform: translate(2px, 2px); }
+    50% { transform: translate(-2px, 2px); }
+    60% { transform: translate(2px, -2px); }
+    70% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+}
+
+.glitch-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, var(--color-secondary) 50%, transparent 100%);
+    opacity: 0;
+    animation: glitchScan 3s ease-in-out infinite;
+}
+
+@keyframes glitchScan {
+    0%, 90%, 100% { opacity: 0; transform: translateX(-100%); }
+    10%, 80% { opacity: 0.3; transform: translateX(100%); }
+}
+
+/* Flickering Text */
+.flickering-text-component {
+    padding: var(--spacing-md);
+}
+
+.flickering-text {
+    font-family: var(--font-secondary);
+    color: var(--color-text);
+    font-size: 1.2rem;
+    margin: 0;
+    animation: flicker 2s ease-in-out infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    10% { opacity: 0.8; }
+    20% { opacity: 1; }
+    30% { opacity: 0.9; }
+    40% { opacity: 1; }
+    50% { opacity: 0.7; }
+    60% { opacity: 1; }
+    70% { opacity: 0.9; }
+    80% { opacity: 1; }
+    90% { opacity: 0.8; }
+}
+
+/* Cursed Text */
+.cursed-text-component {
+    padding: var(--spacing-md);
+}
+
+.cursed-text {
+    font-family: var(--font-accent);
+    color: var(--color-warning);
+    font-size: 1.1rem;
+    margin: 0;
+    text-shadow: var(--glow-green);
+    position: relative;
+    animation: cursedShake 4s ease-in-out infinite;
+}
+
+@keyframes cursedShake {
+    0%, 95%, 100% { transform: translate(0); }
+    5% { transform: translate(1px, 0); }
+    10% { transform: translate(-1px, 0); }
+    15% { transform: translate(0, 1px); }
+    20% { transform: translate(0, -1px); }
+}
+
+.cursed-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-warning);
+    opacity: 0;
+    animation: cursedFlash 6s ease-in-out infinite;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+@keyframes cursedFlash {
+    0%, 90%, 100% { opacity: 0; }
+    95% { opacity: 0.1; }
+}
+
+/* Component Hover Effects */
+.canvas-component:hover .ghostly-text {
+    animation-duration: 1s;
+}
+
+.canvas-component:hover .dripping-text::after {
+    animation-duration: 2s;
+}
+
+.canvas-component:hover .flickering-text {
+    animation-duration: 0.5s;
+}
+
+.canvas-component:hover .cursed-text {
+    animation-duration: 1s;
+}
+
+/* Mini Component Previews in Palette */
+.component-preview .ghostly-text {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.component-preview .dripping-text {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.component-preview .dripping-text::after {
+    display: none;
+}
+
+.component-preview .haunted-btn,
+.component-preview .glowing-btn {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.component-preview .ghostly-input {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs);
+    margin: 0;
+}
+
+.component-preview .mini-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.component-preview .phantom-img,
+.component-preview .glitch-img {
+    width: 60px;
+    height: 40px;
+    font-size: 1.5rem;
+}
+
+.component-preview .flickering-text,
+.component-preview .cursed-text {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Property Panel Inputs */
+.property-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.property-label {
+    display: block;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.property-input {
+    width: 100%;
+    background: rgba(45, 55, 72, 0.5);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+}
+
+.property-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+.property-input[type="color"] {
+    height: 40px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.property-input[type="range"] {
+    -webkit-appearance: none;
+    height: 6px;
+    background: var(--color-border);
+    border-radius: 3px;
+}
+
+.property-input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--glow-purple);
+}
+
+.property-select {
+    width: 100%;
+    background: rgba(45, 55, 72, 0.5);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.property-textarea {
+    width: 100%;
+    background: rgba(45, 55, 72, 0.5);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    resize: vertical;
+    min-height: 80px;
+    font-family: var(--font-secondary);
+}
+
+.property-checkbox {
+    margin-right: var(--spacing-xs);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Component Animations on Add */
+@keyframes componentAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(-20px);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1) translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.canvas-component.appearing {
+    animation: componentAppear 0.6s ease-out;
+}

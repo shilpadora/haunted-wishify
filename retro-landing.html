@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Floppy Graveyard - 1995</title>
+    <link rel="stylesheet" href="css/retro-landing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Orbitron:wght@400;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Dark Room Phase -->
+    <div id="dark-room" class="sequence-phase active">
+        <div class="monitor-glow"></div>
+        <div class="crt-scanlines"></div>
+    </div>
+
+    <!-- Typewriter Phase -->
+    <div id="typewriter-phase" class="sequence-phase">
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <span class="terminal-title">SYSTEM.EXE - [C:\EXPERIMENTS\AI\]</span>
+                <div class="terminal-controls">
+                    <span class="control minimize">_</span>
+                    <span class="control maximize">□</span>
+                    <span class="control close">×</span>
+                </div>
+            </div>
+            <div class="terminal-content">
+                <div class="terminal-line">
+                    <span class="prompt">C:\EXPERIMENTS\AI></span>
+                    <span id="typewriter-text" class="typewriter-text"></span>
+                    <span id="cursor" class="cursor">█</span>
+                </div>
+            </div>
+        </div>
+        <div class="crt-scanlines"></div>
+    </div>
+
+    <!-- Glitch Phase -->
+    <div id="glitch-phase" class="sequence-phase">
+        <div class="glitch-container">
+            <div class="static-overlay"></div>
+            <div class="floppy-disk">
+                <div class="floppy-body">
+                    <div class="floppy-label">
+                        <div class="label-text">FLOPPY GRAVEYARD</div>
+                        <div class="label-subtext">AI_EXPERIMENTS.EXE</div>
+                    </div>
+                    <div class="floppy-shutter"></div>
+                    <div class="floppy-hole"></div>
+                </div>
+            </div>
+            <div class="voiceover-text">Welcome to the Floppy Graveyard...</div>
+        </div>
+        <div class="crt-scanlines"></div>
+    </div>
+
+    <!-- Interactive Demo Phase -->
+    <div id="demo-phase" class="sequence-phase">
+        <div class="file-manager">
+            <div class="file-manager-header">
+                <span class="window-title">File Manager - Floppy Graveyard</span>
+                <div class="window-controls">
+                    <span class="control minimize">_</span>
+                    <span class="control maximize">□</span>
+                    <span class="control close">×</span>
+                </div>
+            </div>
+            <div class="file-manager-toolbar">
+                <button class="toolbar-btn">File</button>
+                <button class="toolbar-btn">Edit</button>
+                <button class="toolbar-btn">View</button>
+                <button class="toolbar-btn">Help</button>
+            </div>
+            <div class="file-manager-content">
+                <div class="file-list">
+                    <div class="file-item" data-file="ai_spirit.exe">
+                        <span class="file-icon">👻</span>
+                        <span class="file-name">AI_SPIRIT.EXE</span>
+                        <span class="file-size">666 KB</span>
+                    </div>
+                    <div class="file-item" data-file="haunted_art.exe">
+                        <span class="file-icon">🎨</span>
+                        <span class="file-name">HAUNTED_ART.EXE</span>
+                        <span class="file-size">1.44 MB</span>
+                    </div>
+                    <div class="file-item" data-file="soul_data.dat">
+                        <span class="file-icon">💾</span>
+                        <span class="file-name">SOUL_DATA.DAT</span>
+                        <span class="file-size">??? KB</span>
+                    </div>
+                </div>
+                <div class="status-bar">
+                    <span>3 objects selected</span>
+                    <span>Free space: 0 bytes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Soul Particles -->
+        <canvas id="soul-particles" class="soul-particles"></canvas>
+
+        <!-- AI Spirit Dialog -->
+        <div id="ai-spirit-dialog" class="ai-spirit-dialog hidden">
+            <div class="dialog-header">
+                <span class="dialog-title">AI Spirit Communication</span>
+                <button class="dialog-close">×</button>
+            </div>
+            <div class="dialog-content">
+                <div class="spirit-avatar">👻</div>
+                <div class="spirit-messages" id="spirit-messages">
+                    <div class="spirit-message">I am the ghost in the machine... Ask me anything...</div>
+                </div>
+                <div class="spirit-input-container">
+                    <input type="text" id="spirit-input" placeholder="Type your question..." maxlength="50">
+                    <button id="spirit-send">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Art Generation Dialog -->
+        <div id="art-dialog" class="art-dialog hidden">
+            <div class="dialog-header">
+                <span class="dialog-title">Haunted Art Generator</span>
+                <button class="dialog-close">×</button>
+            </div>
+            <div class="dialog-content">
+                <div class="art-preview">
+                    <canvas id="art-canvas" width="300" height="200"></canvas>
+                </div>
+                <div class="art-controls">
+                    <button id="generate-art">Generate Haunted Art</button>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="art-status">Ready to create...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Finale Phase -->
+    <div id="finale-phase" class="sequence-phase">
+        <div class="finale-container">
+            <div class="glowing-floppies">
+                <div class="floppy-disk glow-1">💾</div>
+                <div class="floppy-disk glow-2">💾</div>
+                <div class="floppy-disk glow-3">💾</div>
+                <div class="floppy-disk glow-4">💾</div>
+                <div class="floppy-disk glow-5">💾</div>
+            </div>
+            <div class="static-fill"></div>
+            <div class="finale-text">THE EXPERIMENT CONTINUES...</div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="typing-sound" preload="auto" loop>
+        <source src="audio/typing.mp3" type="audio/mpeg">
+        <source src="audio/typing.ogg" type="audio/ogg">
+    </audio>
+    <audio id="glitch-sound" preload="auto">
+        <source src="audio/glitch.mp3" type="audio/mpeg">
+        <source src="audio/glitch.ogg" type="audio/ogg">
+    </audio>
+    <audio id="voiceover-sound" preload="auto">
+        <source src="audio/voiceover.mp3" type="audio/mpeg">
+        <source src="audio/voiceover.ogg" type="audio/ogg">
+    </audio>
+    <audio id="scream-sound" preload="auto">
+        <source src="audio/scream.mp3" type="audio/mpeg">
+        <source src="audio/scream.ogg" type="audio/ogg">
+    </audio>
+    <audio id="static-sound" preload="auto" loop>
+        <source src="audio/static.mp3" type="audio/mpeg">
+        <source src="audio/static.ogg" type="audio/ogg">
+    </audio>
+
+    <script src="js/retro-landing.js"></script>
+</body>
+
+</html>

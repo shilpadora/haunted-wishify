@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👻 Spooky Design Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/figma-spooky.css">
+</head>
+<body class="spooky-theme">
+    <!-- Top Menu Bar -->
+    <header class="top-menu">
+        <div class="menu-left">
+            <div class="logo">
+                <span class="skull">💀</span>
+                <span class="app-name">Spooky Design Studio</span>
+                <span class="ghost">👻</span>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-btn active" data-tab="design">
+                    <span class="icon">🎨</span>
+                    Design
+                </button>
+                <button class="nav-btn" data-tab="prototype">
+                    <span class="icon">⚡</span>
+                    Prototype
+                </button>
+                <button class="nav-btn" data-tab="inspect">
+                    <span class="icon">🔍</span>
+                    Inspect
+                </button>
+            </nav>
+        </div>
+        
+        <div class="menu-center">
+            <div class="file-info">
+                <input type="text" class="file-name" value="Haunted Website Design" />
+                <span class="save-status">👻 Saved to the spirit realm</span>
+            </div>
+        </div>
+        
+        <div class="menu-right">
+            <button class="menu-btn" id="share-btn">
+                <span class="icon">🔗</span>
+                Share
+            </button>
+            <button class="menu-btn" id="export-btn">
+                <span class="icon">📦</span>
+                Export
+            </button>
+            <div class="user-avatar">
+                <span class="avatar-icon">🧙‍♂️</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Interface -->
+    <div class="main-interface">
+        <!-- Left Sidebar -->
+        <aside class="left-sidebar">
+            <!-- Tools Panel -->
+            <div class="tools-panel">
+                <h3 class="panel-title">🛠️ Cursed Tools</h3>
+                <div class="tool-groups">
+                    <div class="tool-group">
+                        <button class="tool-btn active" data-tool="select" title="Select Tool">
+                            <span class="icon">👆</span>
+                        </button>
+                        <button class="tool-btn" data-tool="frame" title="Frame Tool">
+                            <span class="icon">🖼️</span>
+                        </button>
+                        <button class="tool-btn" data-tool="rectangle" title="Rectangle">
+                            <span class="icon">⬜</span>
+                        </button>
+                        <button class="tool-btn" data-tool="ellipse" title="Ellipse">
+                            <span class="icon">⭕</span>
+                        </button>
+                    </div>
+                    
+                    <div class="tool-group">
+                        <button class="tool-btn" data-tool="text" title="Text Tool">
+                            <span class="icon">📝</span>
+                        </button>
+                        <button class="tool-btn" data-tool="pen" title="Pen Tool">
+                            <span class="icon">✒️</span>
+                        </button>
+                        <button class="tool-btn" data-tool="image" title="Image">
+                            <span class="icon">🖼️</span>
+                        </button>
+                        <button class="tool-btn" data-tool="component" title="Component">
+                            <span class="icon">🧩</span>
+                        </button>
+                    </div>
+                    
+                    <div class="tool-group">
+                        <button class="tool-btn" data-tool="hand" title="Hand Tool">
+                            <span class="icon">✋</span>
+                        </button>
+                        <button class="tool-btn" data-tool="zoom" title="Zoom">
+                            <span class="icon">🔍</span>
+                        </button>
+                        <button class="tool-btn" data-tool="comment" title="Comment">
+                            <span class="icon">💬</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assets Panel -->
+            <div class="assets-panel">
+                <h3 class="panel-title">🎭 Haunted Assets</h3>
+                <div class="asset-tabs">
+                    <button class="asset-tab active" data-asset="components">Components</button>
+                    <button class="asset-tab" data-asset="icons">Icons</button>
+                    <button class="asset-tab" data-asset="images">Images</button>
+                </div>
+                
+                <div class="asset-content" id="components-content">
+                    <div class="asset-search">
+                        <input type="text" placeholder="Search components..." class="search-input">
+                    </div>
+                    <div class="component-library">
+                        <div class="component-category">
+                            <h4>👻 Ghostly Elements</h4>
+                            <div class="component-grid">
+                                <div class="component-item" draggable="true" data-component="ghostly-button">
+                                    <div class="component-preview">
+                                        <div class="mini-button">Ghost Button</div>
+                                    </div>
+                                    <span class="component-name">Ghostly Button</span>
+                                </div>
+                                <div class="component-item" draggable="true" data-component="haunted-card">
+                                    <div class="component-preview">
+                                        <div class="mini-card">Card</div>
+                                    </div>
+                                    <span class="component-name">Haunted Card</span>
+                                </div>
+                                <div class="component-item" draggable="true" data-component="spooky-input">
+                                    <div class="component-preview">
+                                        <div class="mini-input"></div>
+                                    </div>
+                                    <span class="component-name">Spooky Input</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="component-category">
+                            <h4>🕯️ Dark UI</h4>
+                            <div class="component-grid">
+                                <div class="component-item" draggable="true" data-component="dark-header">
+                                    <div class="component-preview">
+                                        <div class="mini-header">Header</div>
+                                    </div>
+                                    <span class="component-name">Dark Header</span>
+                                </div>
+                                <div class="component-item" draggable="true" data-component="shadow-modal">
+                                    <div class="component-preview">
+                                        <div class="mini-modal">Modal</div>
+                                    </div>
+                                    <span class="component-name">Shadow Modal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="asset-content hidden" id="icons-content">
+                    <div class="icon-grid">
+                        <div class="icon-item" draggable="true">👻</div>
+                        <div class="icon-item" draggable="true">💀</div>
+                        <div class="icon-item" draggable="true">🎃</div>
+                        <div class="icon-item" draggable="true">🕷️</div>
+                        <div class="icon-item" draggable="true">🦇</div>
+                        <div class="icon-item" draggable="true">🕯️</div>
+                        <div class="icon-item" draggable="true">⚰️</div>
+                        <div class="icon-item" draggable="true">🔮</div>
+                    </div>
+                </div>
+                
+                <div class="asset-content hidden" id="images-content">
+                    <div class="image-grid">
+                        <div class="image-item" draggable="true">
+                            <div class="image-placeholder">🏚️</div>
+                            <span>Haunted House</span>
+                        </div>
+                        <div class="image-item" draggable="true">
+                            <div class="image-placeholder">🌙</div>
+                            <span>Dark Moon</span>
+                        </div>
+                        <div class="image-item" draggable="true">
+                            <div class="image-placeholder">🌫️</div>
+                            <span>Spooky Mist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Canvas Area -->
+        <main class="canvas-area">
+            <div class="canvas-toolbar">
+                <div class="toolbar-left">
+                    <div class="zoom-controls">
+                        <button class="zoom-btn" id="zoom-out">-</button>
+                        <span class="zoom-level">100%</span>
+                        <button class="zoom-btn" id="zoom-in">+</button>
+                    </div>
+                    <button class="toolbar-btn" id="fit-screen">Fit Screen</button>
+                </div>
+                
+                <div class="toolbar-center">
+                    <div class="frame-selector">
+                        <select class="frame-select">
+                            <option>Desktop - 1440x900</option>
+                            <option>Tablet - 768x1024</option>
+                            <option>Mobile - 375x667</option>
+                            <option>Custom</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="toolbar-right">
+                    <button class="toolbar-btn" id="grid-toggle">
+                        <span class="icon">⚏</span>
+                        Grid
+                    </button>
+                    <button class="toolbar-btn" id="rulers-toggle">
+                        <span class="icon">📏</span>
+                        Rulers
+                    </button>
+                </div>
+            </div>
+            
+            <div class="canvas-container">
+                <div class="canvas-wrapper">
+                    <div class="design-canvas" id="design-canvas">
+                        <div class="canvas-background"></div>
+                        
+                        <!-- Sample Frame -->
+                        <div class="design-frame" data-frame="main" style="left: 100px; top: 100px; width: 800px; height: 600px;">
+                            <div class="frame-header">
+                                <span class="frame-name">🎃 Haunted Landing Page</span>
+                                <div class="frame-controls">
+                                    <button class="frame-btn">⚙️</button>
+                                    <button class="frame-btn">❌</button>
+                                </div>
+                            </div>
+                            <div class="frame-content">
+                                <!-- Sample elements -->
+                                <div class="design-element text-element" style="left: 50px; top: 50px; width: 300px; height: 60px;">
+                                    <h1 style="color: #ff6b35; font-family: 'Creepster', cursive; margin: 0;">Welcome to Hell</h1>
+                                </div>
+                                <div class="design-element button-element" style="left: 50px; top: 150px; width: 150px; height: 40px;">
+                                    <button style="background: #8b5cf6; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer;">Enter Portal</button>
+                                </div>
+                                <div class="design-element shape-element" style="left: 300px; top: 200px; width: 200px; height: 200px;">
+                                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ff6b35, #8b5cf6); border-radius: 12px; opacity: 0.8;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <!-- Layers Panel -->
+            <div class="layers-panel">
+                <h3 class="panel-title">👁️ Spirit Layers</h3>
+                <div class="layers-toolbar">
+                    <button class="layers-btn" title="Add Layer">➕</button>
+                    <button class="layers-btn" title="Delete Layer">🗑️</button>
+                    <button class="layers-btn" title="Lock Layer">🔒</button>
+                    <button class="layers-btn" title="Hide Layer">👁️</button>
+                </div>
+                <div class="layers-list">
+                    <div class="layer-item active">
+                        <div class="layer-icon">🖼️</div>
+                        <span class="layer-name">Haunted Landing Page</span>
+                        <div class="layer-controls">
+                            <button class="layer-control">👁️</button>
+                            <button class="layer-control">🔒</button>
+                        </div>
+                    </div>
+                    <div class="layer-item">
+                        <div class="layer-icon">📝</div>
+                        <span class="layer-name">Welcome Text</span>
+                        <div class="layer-controls">
+                            <button class="layer-control">👁️</button>
+                            <button class="layer-control">🔒</button>
+                        </div>
+                    </div>
+                    <div class="layer-item">
+                        <div class="layer-icon">🔘</div>
+                        <span class="layer-name">Enter Button</span>
+                        <div class="layer-controls">
+                            <button class="layer-control">👁️</button>
+                            <button class="layer-control">🔒</button>
+                        </div>
+                    </div>
+                    <div class="layer-item">
+                        <div class="layer-icon">⬜</div>
+                        <span class="layer-name">Gradient Shape</span>
+                        <div class="layer-controls">
+                            <button class="layer-control">👁️</button>
+                            <button class="layer-control">🔒</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Properties Panel -->
+            <div class="properties-panel">
+                <h3 class="panel-title">🔮 Dark Properties</h3>
+                <div class="property-tabs">
+                    <button class="property-tab active" data-prop="design">Design</button>
+                    <button class="property-tab" data-prop="prototype">Prototype</button>
+                    <button class="property-tab" data-prop="inspect">Inspect</button>
+                </div>
+                
+                <div class="property-content" id="design-properties">
+                    <div class="property-section">
+                        <h4>Position & Size</h4>
+                        <div class="property-grid">
+                            <div class="property-group">
+                                <label>X</label>
+                                <input type="number" value="50" class="property-input">
+                            </div>
+                            <div class="property-group">
+                                <label>Y</label>
+                                <input type="number" value="50" class="property-input">
+                            </div>
+                            <div class="property-group">
+                                <label>W</label>
+                                <input type="number" value="300" class="property-input">
+                            </div>
+                            <div class="property-group">
+                                <label>H</label>
+                                <input type="number" value="60" class="property-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="property-section">
+                        <h4>Fill</h4>
+                        <div class="fill-controls">
+                            <div class="color-picker">
+                                <input type="color" value="#ff6b35" class="color-input">
+                                <span class="color-value">#ff6b35</span>
+                            </div>
+                            <div class="opacity-control">
+                                <label>Opacity</label>
+                                <input type="range" min="0" max="100" value="100" class="opacity-slider">
+                                <span class="opacity-value">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="property-section">
+                        <h4>Stroke</h4>
+                        <div class="stroke-controls">
+                            <div class="color-picker">
+                                <input type="color" value="#8b5cf6" class="color-input">
+                                <span class="color-value">#8b5cf6</span>
+                            </div>
+                            <div class="stroke-width">
+                                <label>Width</label>
+                                <input type="number" value="2" class="property-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="property-section">
+                        <h4>Effects</h4>
+                        <div class="effects-list">
+                            <div class="effect-item">
+                                <span class="effect-icon">✨</span>
+                                <span class="effect-name">Ghostly Glow</span>
+                                <button class="effect-toggle active">👁️</button>
+                            </div>
+                            <div class="effect-item">
+                                <span class="effect-icon">🌫️</span>
+                                <span class="effect-name">Shadow Mist</span>
+                                <button class="effect-toggle">👁️</button>
+                            </div>
+                        </div>
+                        <button class="add-effect-btn">➕ Add Effect</button>
+                    </div>
+                    
+                    <div class="property-section">
+                        <h4>Typography</h4>
+                        <div class="typography-controls">
+                            <select class="font-select">
+                                <option>Creepster</option>
+                                <option>Nosifer</option>
+                                <option>Butcherman</option>
+                                <option>Arial</option>
+                            </select>
+                            <div class="font-size-control">
+                                <input type="number" value="32" class="property-input">
+                                <span>px</span>
+                            </div>
+                            <div class="text-style-controls">
+                                <button class="text-style-btn">B</button>
+                                <button class="text-style-btn">I</button>
+                                <button class="text-style-btn">U</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments Panel -->
+            <div class="comments-panel">
+                <h3 class="panel-title">💬 Spirit Messages</h3>
+                <div class="comments-list">
+                    <div class="comment-item">
+                        <div class="comment-avatar">👻</div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="comment-author">Ghost Designer</span>
+                                <span class="comment-time">2 min ago</span>
+                            </div>
+                            <p class="comment-text">This haunted button needs more glow effect! 🌟</p>
+                        </div>
+                    </div>
+                    <div class="comment-item">
+                        <div class="comment-avatar">🧙‍♂️</div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="comment-author">Dark Wizard</span>
+                                <span class="comment-time">5 min ago</span>
+                            </div>
+                            <p class="comment-text">The color scheme is perfectly spooky! 🎃</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-input">
+                    <input type="text" placeholder="Add a ghostly comment..." class="comment-text-input">
+                    <button class="comment-send-btn">👻</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Context Menus -->
+    <div class="context-menu hidden" id="element-context-menu">
+        <div class="context-item">✂️ Cut</div>
+        <div class="context-item">📋 Copy</div>
+        <div class="context-item">📄 Paste</div>
+        <div class="context-separator"></div>
+        <div class="context-item">🗑️ Delete</div>
+        <div class="context-item">📦 Group</div>
+        <div class="context-item">🔓 Ungroup</div>
+        <div class="context-separator"></div>
+        <div class="context-item">🔒 Lock</div>
+        <div class="context-item">👁️ Hide</div>
+    </div>
+
+    <!-- Floating Panels -->
+    <div class="floating-panel color-picker-panel hidden">
+        <div class="panel-header">
+            <span>🎨 Color Picker</span>
+            <button class="panel-close">❌</button>
+        </div>
+        <div class="color-picker-content">
+            <div class="color-wheel"></div>
+            <div class="color-sliders">
+                <div class="slider-group">
+                    <label>Hue</label>
+                    <input type="range" min="0" max="360" class="hue-slider">
+                </div>
+                <div class="slider-group">
+                    <label>Saturation</label>
+                    <input type="range" min="0" max="100" class="saturation-slider">
+                </div>
+                <div class="slider-group">
+                    <label>Lightness</label>
+                    <input type="range" min="0" max="100" class="lightness-slider">
+                </div>
+            </div>
+            <div class="color-presets">
+                <div class="preset-color" style="background: #ff6b35;"></div>
+                <div class="preset-color" style="background: #8b5cf6;"></div>
+                <div class="preset-color" style="background: #10b981;"></div>
+                <div class="preset-color" style="background: #f59e0b;"></div>
+                <div class="preset-color" style="background: #ef4444;"></div>
+                <div class="preset-color" style="background: #8b0000;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/figma-spooky.js"></script>
+</body>
+</html>

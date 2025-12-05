@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Figma Interface</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-button {
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .test-button:hover {
+            background: #7c3aed;
+        }
+        .status {
+            background: #2d3748;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .success { border-left: 4px solid #10b981; }
+        .error { border-left: 4px solid #ef4444; }
+        .info { border-left: 4px solid #3b82f6; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🎃 Figma Interface Test</h1>
+        
+        <div class="status info">
+            <h3>Interface Status</h3>
+            <p id="interface-status">Checking interface...</p>
+        </div>
+        
+        <div class="status info">
+            <h3>Properties Panel Test</h3>
+            <p id="properties-status">Testing properties panel...</p>
+        </div>
+        
+        <button class="test-button" onclick="openFigmaInterface()">
+            🚀 Open Figma Interface
+        </button>
+        
+        <button class="test-button" onclick="testPropertiesPanel()">
+            🔮 Test Properties Panel
+        </button>
+        
+        <div class="status info">
+            <h3>Instructions</h3>
+            <ol>
+                <li>Click "Open Figma Interface" to launch the main interface</li>
+                <li>Click on any design element (text, button, or shape) in the canvas</li>
+                <li>Check if the properties panel on the right shows element properties</li>
+                <li>Verify that you can see the drawing area with the sample elements</li>
+            </ol>
+        </div>
+        
+        <div class="status info">
+            <h3>Expected Behavior</h3>
+            <ul>
+                <li>✅ Canvas area should be visible in the center</li>
+                <li>✅ Sample elements should be clickable</li>
+                <li>✅ Properties panel should update when elements are selected</li>
+                <li>✅ Position and size values should appear in the properties</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function openFigmaInterface() {
+            window.open('figma-spooky.html', '_blank');
+            document.getElementById('interface-status').innerHTML = '✅ Interface opened in new tab';
+        }
+        
+        function testPropertiesPanel() {
+            // This would test the properties panel functionality
+            document.getElementById('properties-status').innerHTML = '🔍 Open the interface and click on elements to test';
+        }
+        
+        // Check if files exist
+        window.addEventListener('load', () => {
+            fetch('figma-spooky.html')
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('interface-status').innerHTML = '✅ Interface file found and ready';
+                    } else {
+                        document.getElementById('interface-status').innerHTML = '❌ Interface file not found';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('interface-status').innerHTML = '❌ Error loading interface: ' + error.message;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+/* Spooky Web Builder - Theme System */
+
+/* Base Spooky Theme (Default) */
+.spooky-theme {
+    --color-primary: #0a0a0a;
+    --color-secondary: #ff6b35;
+    --color-accent: #8b5cf6;
+    --color-warning: #10b981;
+    --color-background: #1a1a1a;
+    --color-text: #f8fafc;
+    --color-text-dim: #94a3b8;
+    --color-border: #374151;
+    --color-hover: #2d3748;
+    
+    --glow-orange: 0 0 20px rgba(255, 107, 53, 0.5);
+    --glow-purple: 0 0 20px rgba(139, 92, 246, 0.5);
+    --glow-green: 0 0 20px rgba(16, 185, 129, 0.5);
+    --glow-white: 0 0 15px rgba(248, 250, 252, 0.3);
+}
+
+/* Haunted Mansion Theme */
+.haunted-mansion-theme {
+    --color-primary: #1a0d1a;
+    --color-secondary: #8b0000;
+    --color-accent: #4b0082;
+    --color-warning: #228b22;
+    --color-background: #2d1b2d;
+    --color-text: #f5f5dc;
+    --color-text-dim: #daa520;
+    --color-border: #8b4513;
+    --color-hover: #4a2c4a;
+    
+    --glow-orange: 0 0 25px rgba(139, 0, 0, 0.6);
+    --glow-purple: 0 0 25px rgba(75, 0, 130, 0.6);
+    --glow-green: 0 0 25px rgba(34, 139, 34, 0.6);
+    --glow-white: 0 0 20px rgba(245, 245, 220, 0.4);
+}
+
+/* Graveyard Mist Theme */
+.graveyard-mist-theme {
+    --color-primary: #0f0f23;
+    --color-secondary: #32cd32;
+    --color-accent: #9370db;
+    --color-warning: #ff4500;
+    --color-background: #191970;
+    --color-text: #e6e6fa;
+    --color-text-dim: #b0c4de;
+    --color-border: #483d8b;
+    --color-hover: #2f2f4f;
+    
+    --glow-orange: 0 0 30px rgba(255, 69, 0, 0.7);
+    --glow-purple: 0 0 30px rgba(147, 112, 219, 0.7);
+    --glow-green: 0 0 30px rgba(50, 205, 50, 0.7);
+    --glow-white: 0 0 25px rgba(230, 230, 250, 0.5);
+}
+
+/* Witch's Cauldron Theme */
+.witches-cauldron-theme {
+    --color-primary: #0d1b0d;
+    --color-secondary: #ff8c00;
+    --color-accent: #9932cc;
+    --color-warning: #adff2f;
+    --color-background: #1c3a1c;
+    --color-text: #f0fff0;
+    --color-text-dim: #98fb98;
+    --color-border: #556b2f;
+    --color-hover: #2e4b2e;
+    
+    --glow-orange: 0 0 35px rgba(255, 140, 0, 0.8);
+    --glow-purple: 0 0 35px rgba(153, 50, 204, 0.8);
+    --glow-green: 0 0 35px rgba(173, 255, 47, 0.8);
+    --glow-white: 0 0 30px rgba(240, 255, 240, 0.6);
+}
+
+/* Vampire's Lair Theme */
+.vampires-lair-theme {
+    --color-primary: #1a0000;
+    --color-secondary: #dc143c;
+    --color-accent: #800080;
+    --color-warning: #ff6347;
+    --color-background: #2f0000;
+    --color-text: #fffafa;
+    --color-text-dim: #ffc0cb;
+    --color-border: #8b0000;
+    --color-hover: #4b0000;
+    
+    --glow-orange: 0 0 40px rgba(220, 20, 60, 0.9);
+    --glow-purple: 0 0 40px rgba(128, 0, 128, 0.9);
+    --glow-green: 0 0 40px rgba(255, 99, 71, 0.9);
+    --glow-white: 0 0 35px rgba(255, 250, 250, 0.7);
+}
+
+/* Theme-specific Background Patterns */
+.haunted-mansion-theme body::before {
+    background: 
+        radial-gradient(circle at 25% 75%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(75, 0, 130, 0.15) 0%, transparent 50%);
+}
+
+.graveyard-mist-theme body::before {
+    background: 
+        radial-gradient(circle at 30% 70%, rgba(50, 205, 50, 0.1) 0%, transparent 60%),
+        radial-gradient(circle at 70% 30%, rgba(147, 112, 219, 0.1) 0%, transparent 60%);
+}
+
+.witches-cauldron-theme body::before {
+    background: 
+        radial-gradient(circle at 40% 60%, rgba(255, 140, 0, 0.12) 0%, transparent 55%),
+        radial-gradient(circle at 60% 40%, rgba(173, 255, 47, 0.08) 0%, transparent 55%);
+}
+
+.vampires-lair-theme body::before {
+    background: 
+        radial-gradient(circle at 35% 65%, rgba(220, 20, 60, 0.2) 0%, transparent 45%),
+        radial-gradient(circle at 65% 35%, rgba(128, 0, 128, 0.15) 0%, transparent 45%);
+}
+
+/* Theme-specific Canvas Grid */
+.haunted-mansion-theme .canvas {
+    background-image: 
+        radial-gradient(circle at 1px 1px, rgba(139, 0, 0, 0.2) 1px, transparent 0);
+}
+
+.graveyard-mist-theme .canvas {
+    background-image: 
+        radial-gradient(circle at 1px 1px, rgba(50, 205, 50, 0.15) 1px, transparent 0);
+}
+
+.witches-cauldron-theme .canvas {
+    background-image: 
+        radial-gradient(circle at 1px 1px, rgba(173, 255, 47, 0.12) 1px, transparent 0);
+}
+
+.vampires-lair-theme .canvas {
+    background-image: 
+        radial-gradient(circle at 1px 1px, rgba(220, 20, 60, 0.18) 1px, transparent 0);
+}
+
+/* Theme Selector Component */
+.theme-selector {
+    margin-bottom: var(--spacing-lg);
+}
+
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.theme-option {
+    background: rgba(45, 55, 72, 0.3);
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--spacing-sm);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-option:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.theme-option.active {
+    border-color: var(--color-secondary);
+    box-shadow: var(--glow-orange);
+}
+
+.theme-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    transition: var(--transition-normal);
+}
+
+.theme-option[data-theme="spooky-theme"]::before {
+    background: linear-gradient(90deg, #ff6b35, #8b5cf6);
+}
+
+.theme-option[data-theme="haunted-mansion-theme"]::before {
+    background: linear-gradient(90deg, #8b0000, #4b0082);
+}
+
+.theme-option[data-theme="graveyard-mist-theme"]::before {
+    background: linear-gradient(90deg, #32cd32, #9370db);
+}
+
+.theme-option[data-theme="witches-cauldron-theme"]::before {
+    background: linear-gradient(90deg, #ff8c00, #adff2f);
+}
+
+.theme-option[data-theme="vampires-lair-theme"]::before {
+    background: linear-gradient(90deg, #dc143c, #800080);
+}
+
+.theme-name {
+    font-size: 0.8rem;
+    color: var(--color-text);
+    margin-top: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.theme-preview {
+    width: 100%;
+    height: 30px;
+    border-radius: 4px;
+    margin-bottom: var(--spacing-xs);
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-preview[data-theme="spooky-theme"] {
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #ff6b35, #8b5cf6);
+}
+
+.theme-preview[data-theme="haunted-mansion-theme"] {
+    background: linear-gradient(135deg, #1a0d1a, #2d1b2d, #8b0000, #4b0082);
+}
+
+.theme-preview[data-theme="graveyard-mist-theme"] {
+    background: linear-gradient(135deg, #0f0f23, #191970, #32cd32, #9370db);
+}
+
+.theme-preview[data-theme="witches-cauldron-theme"] {
+    background: linear-gradient(135deg, #0d1b0d, #1c3a1c, #ff8c00, #adff2f);
+}
+
+.theme-preview[data-theme="vampires-lair-theme"] {
+    background: linear-gradient(135deg, #1a0000, #2f0000, #dc143c, #800080);
+}
+
+/* Theme Transition Animation */
+.theme-transition {
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom Theme Creator */
+.custom-theme-creator {
+    background: rgba(26, 26, 26, 0.95);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.custom-theme-creator h4 {
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-primary);
+}
+
+.color-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.color-picker-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.color-picker-item label {
+    font-size: 0.8rem;
+    color: var(--color-text-dim);
+}
+
+.color-picker-item input[type="color"] {
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    cursor: pointer;
+    background: transparent;
+}
+
+.theme-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.theme-actions .haunted-btn {
+    flex: 1;
+    justify-content: center;
+}
+
+/* Seasonal Theme Variations */
+.halloween-theme {
+    --seasonal-primary: #ff4500;
+    --seasonal-secondary: #ffa500;
+    --seasonal-accent: #8b0000;
+}
+
+.christmas-spooky-theme {
+    --seasonal-primary: #006400;
+    --seasonal-secondary: #dc143c;
+    --seasonal-accent: #ffd700;
+}
+
+.valentine-gothic-theme {
+    --seasonal-primary: #8b0000;
+    --seasonal-secondary: #ff1493;
+    --seasonal-accent: #4b0082;
+}
+
+/* Theme-specific Component Overrides */
+.haunted-mansion-theme .ghostly-text {
+    color: #f5f5dc;
+    text-shadow: 0 0 20px rgba(139, 0, 0, 0.6);
+}
+
+.graveyard-mist-theme .cursed-text {
+    color: #32cd32;
+    text-shadow: 0 0 25px rgba(50, 205, 50, 0.7);
+}
+
+.witches-cauldron-theme .dripping-text {
+    color: #ff8c00;
+    text-shadow: 0 0 30px rgba(255, 140, 0, 0.8);
+}
+
+.vampires-lair-theme .haunted-btn {
+    border-color: #dc143c;
+    background: linear-gradient(135deg, #2f0000, #4b0000);
+}
+
+.vampires-lair-theme .haunted-btn:hover {
+    box-shadow: 0 0 40px rgba(220, 20, 60, 0.9);
+}
+
+/* Theme Animation Effects */
+@keyframes themeShift {
+    0% { filter: hue-rotate(0deg); }
+    25% { filter: hue-rotate(90deg); }
+    50% { filter: hue-rotate(180deg); }
+    75% { filter: hue-rotate(270deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+.theme-shifting {
+    animation: themeShift 10s linear infinite;
+}
+
+/* Accessibility - High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --color-border: #ffffff;
+        --color-text: #ffffff;
+        --color-background: #000000;
+    }
+    
+    .canvas-component {
+        border-width: 2px;
+    }
+    
+    .haunted-btn {
+        border-width: 2px;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .ghostly-text,
+    .dripping-text,
+    .flickering-text,
+    .cursed-text {
+        animation: none;
+    }
+    
+    .phantom-img,
+    .glitch-img {
+        animation: none;
+    }
+}

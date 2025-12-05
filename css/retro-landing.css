@@ -1,0 +1,716 @@
+/* Retro 1995 Landing Page Styles */
+
+:root {
+    /* 1995 Color Palette */
+    --retro-green: #00ff00;
+    --retro-amber: #ffbf00;
+    --retro-white: #ffffff;
+    --retro-black: #000000;
+    --retro-gray: #c0c0c0;
+    --retro-dark-gray: #808080;
+    --monitor-glow: #003300;
+    
+    /* CRT Effects */
+    --scanline-opacity: 0.1;
+    --flicker-intensity: 0.02;
+    
+    /* Fonts */
+    --font-terminal: 'VT323', monospace;
+    --font-system: 'Orbitron', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-terminal);
+    background: var(--retro-black);
+    color: var(--retro-green);
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+    cursor: none;
+}
+
+/* Sequence Phase Base */
+.sequence-phase {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out;
+}
+
+.sequence-phase.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* CRT Scanlines Effect */
+.crt-scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        transparent 50%,
+        rgba(0, 255, 0, var(--scanline-opacity)) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    animation: scanlines 0.1s linear infinite;
+}
+
+@keyframes scanlines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(4px); }
+}
+
+/* Phase 1: Dark Room with Monitor Glow */
+#dark-room {
+    background: radial-gradient(
+        ellipse at center,
+        var(--monitor-glow) 0%,
+        var(--retro-black) 40%,
+        var(--retro-black) 100%
+    );
+}
+
+.monitor-glow {
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 255, 0, 0.1) 0%,
+        rgba(0, 255, 0, 0.05) 30%,
+        transparent 70%
+    );
+    border-radius: 20px;
+    animation: monitorFlicker 3s ease-in-out infinite;
+}
+
+@keyframes monitorFlicker {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+    85% { opacity: 0.9; }
+    90% { opacity: 1; }
+}
+
+/* Phase 2: Typewriter Terminal */
+#typewriter-phase {
+    background: var(--retro-black);
+}
+
+.terminal-container {
+    width: 80%;
+    max-width: 800px;
+    background: var(--retro-black);
+    border: 2px solid var(--retro-gray);
+    box-shadow: 
+        inset -2px -2px 0 var(--retro-dark-gray),
+        inset 2px 2px 0 var(--retro-white),
+        0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.terminal-header {
+    background: var(--retro-gray);
+    color: var(--retro-black);
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-system);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.terminal-controls {
+    display: flex;
+    gap: 4px;
+}
+
+.control {
+    width: 16px;
+    height: 16px;
+    background: var(--retro-gray);
+    border: 1px outset var(--retro-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.control:hover {
+    background: var(--retro-white);
+}
+
+.terminal-content {
+    padding: 20px;
+    font-size: 18px;
+    line-height: 1.4;
+    min-height: 200px;
+}
+
+.terminal-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: var(--retro-green);
+    margin-right: 8px;
+}
+
+.typewriter-text {
+    color: var(--retro-green);
+}
+
+.cursor {
+    color: var(--retro-green);
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Phase 3: Glitch and Floppy Reveal */
+#glitch-phase {
+    background: var(--retro-black);
+    position: relative;
+}
+
+.glitch-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.static-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><filter id="noise"><feTurbulence baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/></filter></defs><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.4"/></svg>');
+    opacity: 0;
+    animation: staticFlicker 0.1s infinite;
+}
+
+@keyframes staticFlicker {
+    0% { opacity: 0; }
+    10% { opacity: 0.1; }
+    20% { opacity: 0; }
+    30% { opacity: 0.15; }
+    40% { opacity: 0; }
+    50% { opacity: 0.05; }
+    60% { opacity: 0; }
+    70% { opacity: 0.2; }
+    80% { opacity: 0; }
+    90% { opacity: 0.1; }
+    100% { opacity: 0; }
+}
+
+.floppy-disk {
+    width: 300px;
+    height: 300px;
+    transform: scale(0);
+    animation: floppyReveal 2s ease-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes floppyReveal {
+    0% { 
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% { 
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.floppy-body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    border: 3px solid #666;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(255, 191, 0, 0.5);
+}
+
+.floppy-label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    height: 80px;
+    background: var(--retro-white);
+    color: var(--retro-black);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-system);
+}
+
+.label-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.label-subtext {
+    font-size: 12px;
+    color: #666;
+}
+
+.floppy-shutter {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+    height: 8px;
+    background: #333;
+    border-radius: 4px;
+}
+
+.floppy-hole {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    background: var(--retro-black);
+    border-radius: 50%;
+    border: 2px solid #666;
+}
+
+.voiceover-text {
+    position: absolute;
+    bottom: 100px;
+    font-size: 24px;
+    color: var(--retro-amber);
+    text-align: center;
+    opacity: 0;
+    animation: voiceoverFade 3s ease-in-out forwards;
+    animation-delay: 3s;
+    text-shadow: 0 0 20px var(--retro-amber);
+}
+
+@keyframes voiceoverFade {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Phase 4: Interactive Demo */
+#demo-phase {
+    background: var(--retro-black);
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.file-manager {
+    width: 600px;
+    height: 400px;
+    background: var(--retro-gray);
+    border: 2px outset var(--retro-gray);
+    font-family: var(--font-system);
+    font-size: 12px;
+    position: relative;
+    z-index: 10;
+}
+
+.file-manager-header {
+    background: linear-gradient(to bottom, #0080ff, #0060c0);
+    color: var(--retro-white);
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.window-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.file-manager-toolbar {
+    background: var(--retro-gray);
+    border-bottom: 1px solid var(--retro-dark-gray);
+    padding: 4px;
+    display: flex;
+    gap: 8px;
+}
+
+.toolbar-btn {
+    background: var(--retro-gray);
+    border: 1px outset var(--retro-gray);
+    padding: 2px 8px;
+    font-family: var(--font-system);
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.toolbar-btn:hover {
+    background: #e0e0e0;
+}
+
+.toolbar-btn:active {
+    border: 1px inset var(--retro-gray);
+}
+
+.file-manager-content {
+    height: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+}
+
+.file-list {
+    flex: 1;
+    padding: 8px;
+    background: var(--retro-white);
+    overflow-y: auto;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-bottom: 2px;
+}
+
+.file-item:hover {
+    background: #0080ff;
+    color: var(--retro-white);
+}
+
+.file-item.selected {
+    background: #0080ff;
+    color: var(--retro-white);
+}
+
+.file-icon {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.file-name {
+    flex: 1;
+    font-weight: bold;
+}
+
+.file-size {
+    color: #666;
+    font-size: 10px;
+}
+
+.status-bar {
+    background: var(--retro-gray);
+    border-top: 1px solid var(--retro-dark-gray);
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+}
+
+/* Soul Particles Canvas */
+.soul-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* AI Spirit Dialog */
+.ai-spirit-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    background: var(--retro-gray);
+    border: 2px outset var(--retro-gray);
+    font-family: var(--font-system);
+    font-size: 12px;
+    z-index: 20;
+}
+
+.ai-spirit-dialog.hidden {
+    display: none;
+}
+
+.dialog-header {
+    background: linear-gradient(to bottom, #800080, #600060);
+    color: var(--retro-white);
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.dialog-close {
+    background: var(--retro-gray);
+    border: 1px outset var(--retro-gray);
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.dialog-content {
+    padding: 16px;
+    height: calc(100% - 30px);
+    display: flex;
+    flex-direction: column;
+}
+
+.spirit-avatar {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 16px;
+    animation: ghostFloat 2s ease-in-out infinite;
+}
+
+@keyframes ghostFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.spirit-messages {
+    flex: 1;
+    background: var(--retro-white);
+    border: 1px inset var(--retro-gray);
+    padding: 8px;
+    overflow-y: auto;
+    margin-bottom: 8px;
+}
+
+.spirit-message {
+    margin-bottom: 8px;
+    padding: 4px;
+    background: #f0f0f0;
+    border-radius: 2px;
+}
+
+.spirit-input-container {
+    display: flex;
+    gap: 4px;
+}
+
+#spirit-input {
+    flex: 1;
+    padding: 4px;
+    border: 1px inset var(--retro-gray);
+    font-family: var(--font-system);
+    font-size: 11px;
+}
+
+#spirit-send {
+    background: var(--retro-gray);
+    border: 1px outset var(--retro-gray);
+    padding: 4px 8px;
+    font-family: var(--font-system);
+    font-size: 11px;
+    cursor: pointer;
+}
+
+/* Art Generation Dialog */
+.art-dialog {
+    position: absolute;
+    top: 20%;
+    right: 20px;
+    width: 350px;
+    height: 350px;
+    background: var(--retro-gray);
+    border: 2px outset var(--retro-gray);
+    font-family: var(--font-system);
+    font-size: 12px;
+    z-index: 20;
+}
+
+.art-dialog.hidden {
+    display: none;
+}
+
+.art-preview {
+    padding: 16px;
+    text-align: center;
+}
+
+#art-canvas {
+    border: 1px inset var(--retro-gray);
+    background: var(--retro-white);
+}
+
+.art-controls {
+    padding: 16px;
+}
+
+#generate-art {
+    width: 100%;
+    background: var(--retro-gray);
+    border: 1px outset var(--retro-gray);
+    padding: 8px;
+    font-family: var(--font-system);
+    font-size: 11px;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: var(--retro-white);
+    border: 1px inset var(--retro-gray);
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #00ff00, #ffff00);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.art-status {
+    font-size: 10px;
+    color: #666;
+    text-align: center;
+}
+
+/* Phase 5: Finale */
+#finale-phase {
+    background: var(--retro-black);
+    flex-direction: column;
+}
+
+.finale-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.glowing-floppies {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 100px;
+}
+
+.glowing-floppies .floppy-disk {
+    font-size: 80px;
+    animation: floppyGlow 2s ease-in-out infinite;
+}
+
+.glow-1 { animation-delay: 0s; }
+.glow-2 { animation-delay: 0.4s; }
+.glow-3 { animation-delay: 0.8s; }
+.glow-4 { animation-delay: 1.2s; }
+.glow-5 { animation-delay: 1.6s; }
+
+@keyframes floppyGlow {
+    0%, 100% { 
+        text-shadow: 0 0 20px var(--retro-amber);
+        transform: scale(1);
+    }
+    50% { 
+        text-shadow: 0 0 40px var(--retro-amber), 0 0 60px var(--retro-amber);
+        transform: scale(1.2);
+    }
+}
+
+.static-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><filter id="noise"><feTurbulence baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/></filter></defs><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.8"/></svg>');
+    animation: staticFill 3s ease-in forwards;
+    animation-delay: 2s;
+}
+
+@keyframes staticFill {
+    0% { height: 0%; }
+    100% { height: 100%; }
+}
+
+.finale-text {
+    font-size: 36px;
+    color: var(--retro-green);
+    text-shadow: 0 0 30px var(--retro-green);
+    animation: finalText 2s ease-in-out infinite;
+    z-index: 10;
+    position: relative;
+}
+
+@keyframes finalText {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .terminal-container {
+        width: 95%;
+    }
+    
+    .file-manager {
+        width: 90%;
+        height: 300px;
+    }
+    
+    .ai-spirit-dialog,
+    .art-dialog {
+        width: 90%;
+        left: 5%;
+        transform: translateX(0);
+    }
+    
+    .glowing-floppies {
+        gap: 20px;
+    }
+    
+    .glowing-floppies .floppy-disk {
+        font-size: 40px;
+    }
+}

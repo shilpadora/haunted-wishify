@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Spooky Web Builder</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #f8fafc;
+            font-family: Arial, sans-serif;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-button {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .test-button:hover {
+            background: #e55a2b;
+        }
+        .status {
+            background: #2d3748;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #8b5cf6;
+        }
+        .success { border-left-color: #10b981; }
+        .error { border-left-color: #ff6b35; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🎃 Spooky Web Builder Test</h1>
+        <p>This page helps test the main builder functionality.</p>
+        
+        <div class="status" id="status">
+            <strong>Status:</strong> <span id="status-text">Initializing...</span>
+        </div>
+
+        <button class="test-button" onclick="openMainBuilder()">
+            🏗️ Open Main Builder
+        </button>
+        
+        <button class="test-button" onclick="testDragDrop()">
+            🎭 Test Drag & Drop
+        </button>
+        
+        <button class="test-button" onclick="testExport()">
+            📦 Test Export
+        </button>
+
+        <h2>Expected Functionality:</h2>
+        <ul>
+            <li>✅ Drag components from the palette to the canvas</li>
+            <li>✅ Drop components should create them on the canvas</li>
+            <li>✅ Components should be selectable and moveable</li>
+            <li>✅ Properties panel should update when selecting components</li>
+            <li>✅ Export button should generate and download HTML</li>
+            <li>✅ Save button should store project in localStorage</li>
+            <li>✅ Preview button should open project in new window</li>
+        </ul>
+
+        <h2>Files Created/Fixed:</h2>
+        <ul>
+            <li>✅ <code>js/core/builder-engine.js</code> - Main builder orchestrator</li>
+            <li>✅ <code>js/core/export-system.js</code> - Export functionality</li>
+            <li>✅ <code>js/app.js</code> - Application entry point</li>
+            <li>✅ Enhanced <code>js/core/component-library.js</code> - Fixed positioning</li>
+            <li>✅ Enhanced <code>css/main.css</code> - Added component styles</li>
+        </ul>
+
+        <h2>Debug Information:</h2>
+        <div id="debug-info">
+            <p>Open browser console to see debug messages.</p>
+            <p>Development tools available at <code>window.spookyBuilder</code></p>
+        </div>
+    </div>
+
+    <script>
+        function updateStatus(message, type = 'info') {
+            const statusEl = document.getElementById('status');
+            const statusText = document.getElementById('status-text');
+            
+            statusText.textContent = message;
+            statusEl.className = `status ${type}`;
+        }
+
+        function openMainBuilder() {
+            updateStatus('Opening main builder...', 'info');
+            window.open('index.html', '_blank');
+        }
+
+        function testDragDrop() {
+            updateStatus('Open the main builder and try dragging components from the palette to the canvas', 'info');
+            openMainBuilder();
+        }
+
+        function testExport() {
+            updateStatus('Open the main builder, add some components, then click the export button', 'info');
+            openMainBuilder();
+        }
+
+        // Check if main builder files exist
+        function checkFiles() {
+            const requiredFiles = [
+                'js/core/builder-engine.js',
+                'js/core/export-system.js',
+                'js/app.js'
+            ];
+
+            let allFilesExist = true;
+            
+            requiredFiles.forEach(file => {
+                fetch(file, { method: 'HEAD' })
+                    .then(response => {
+                        if (!response.ok) {
+                            allFilesExist = false;
+                            console.error('Missing file:', file);
+                        }
+                    })
+                    .catch(error => {
+                        allFilesExist = false;
+                        console.error('Error checking file:', file, error);
+                    });
+            });
+
+            setTimeout(() => {
+                if (allFilesExist) {
+                    updateStatus('All required files are present. Builder should work!', 'success');
+                } else {
+                    updateStatus('Some files are missing. Check console for details.', 'error');
+                }
+            }, 1000);
+        }
+
+        // Run file check on load
+        checkFiles();
+    </script>
+</body>
+</html>

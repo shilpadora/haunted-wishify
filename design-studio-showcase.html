@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👻 Spooky Design Studio Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #0a0a0a;
+            --color-secondary: #ff6b35;
+            --color-accent: #8b5cf6;
+            --color-warning: #10b981;
+            --color-background: #1a1a1a;
+            --color-text: #f8fafc;
+            --color-text-dim: #94a3b8;
+            --color-border: #374151;
+            --glow-orange: 0 0 20px rgba(255, 107, 53, 0.5);
+            --glow-purple: 0 0 20px rgba(139, 92, 246, 0.5);
+            --glow-green: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--color-primary);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+            animation: backgroundShift 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .title {
+            font-family: 'Creepster', cursive;
+            font-size: 4rem;
+            color: var(--color-secondary);
+            text-shadow: var(--glow-orange);
+            margin-bottom: 16px;
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: var(--glow-orange); }
+            50% { text-shadow: 0 0 40px rgba(255, 107, 53, 0.8); }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--color-text-dim);
+            margin-bottom: 32px;
+        }
+
+        .launch-btn {
+            background: linear-gradient(135deg, var(--color-accent), #7c3aed);
+            border: 2px solid var(--color-accent);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .launch-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--glow-purple);
+        }
+
+        .features-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-title {
+            font-family: 'Creepster', cursive;
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            text-shadow: var(--glow-purple);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid var(--color-border);
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-accent);
+            box-shadow: var(--glow-purple);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-title {
+            font-family: 'Creepster', cursive;
+            font-size: 1.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 16px;
+            text-shadow: var(--glow-orange);
+        }
+
+        .feature-description {
+            color: var(--color-text-dim);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            color: var(--color-text-dim);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+        }
+
+        .screenshot-section {
+            padding: 80px 20px;
+            background: rgba(26, 26, 26, 0.5);
+            text-align: center;
+        }
+
+        .screenshot-title {
+            font-family: 'Creepster', cursive;
+            font-size: 2.5rem;
+            color: var(--color-warning);
+            text-shadow: var(--glow-green);
+            margin-bottom: 40px;
+        }
+
+        .screenshot-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 3px solid var(--color-accent);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--glow-purple);
+            background: var(--color-background);
+        }
+
+        .screenshot-mockup {
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .mockup-header {
+            height: 48px;
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 16px;
+        }
+
+        .mockup-logo {
+            font-family: 'Creepster', cursive;
+            color: var(--color-secondary);
+            font-size: 1rem;
+        }
+
+        .mockup-tabs {
+            display: flex;
+            gap: 8px;
+        }
+
+        .mockup-tab {
+            background: var(--color-accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .mockup-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 280px 1fr 320px;
+        }
+
+        .mockup-sidebar {
+            background: rgba(26, 26, 26, 0.8);
+            border-right: 1px solid var(--color-border);
+            padding: 16px;
+        }
+
+        .mockup-canvas {
+            background: var(--color-background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .mockup-frame {
+            width: 300px;
+            height: 200px;
+            background: white;
+            border: 2px solid var(--color-accent);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mockup-frame-header {
+            height: 32px;
+            background: var(--color-accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            font-size: 0.8rem;
+        }
+
+        .mockup-frame-content {
+            flex: 1;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mockup-element {
+            background: var(--color-accent);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .mockup-properties {
+            background: rgba(26, 26, 26, 0.8);
+            border-left: 1px solid var(--color-border);
+            padding: 16px;
+        }
+
+        .comparison-section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .comparison-title {
+            font-family: 'Creepster', cursive;
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            text-shadow: var(--glow-orange);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .comparison-table {
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-cell {
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid var(--color-border);
+        }
+
+        .comparison-cell:last-child {
+            border-right: none;
+        }
+
+        .comparison-header {
+            background: var(--color-accent);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-feature {
+            color: var(--color-text-dim);
+        }
+
+        .comparison-check {
+            color: var(--color-warning);
+            font-size: 1.5rem;
+        }
+
+        .comparison-cross {
+            color: var(--color-secondary);
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mockup-content {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+            
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-cell {
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">👻 Spooky Design Studio</h1>
+        <p class="subtitle">Professional Figma-like design interface with a haunted twist</p>
+        <a href="figma-spooky.html" class="launch-btn" target="_blank">
+            🎨 Launch Design Studio
+        </a>
+    </div>
+
+    <div class="features-section">
+        <h2 class="features-title">🔮 Supernatural Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🛠️</span>
+                <h3 class="feature-title">Professional Tools</h3>
+                <p class="feature-description">Complete set of design tools with spooky aesthetics</p>
+                <ul class="feature-list">
+                    <li>Selection, Rectangle, Ellipse, Text tools</li>
+                    <li>Pen tool for custom shapes</li>
+                    <li>Component and image tools</li>
+                    <li>Hand and zoom navigation</li>
+                    <li>Comment and collaboration tools</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🎭</span>
+                <h3 class="feature-title">Haunted Assets</h3>
+                <p class="feature-description">Curated library of spooky design components</p>
+                <ul class="feature-list">
+                    <li>Ghostly buttons and cards</li>
+                    <li>Dark UI components</li>
+                    <li>Halloween icon collection</li>
+                    <li>Spooky image assets</li>
+                    <li>Drag and drop functionality</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">👁️</span>
+                <h3 class="feature-title">Spirit Layers</h3>
+                <p class="feature-description">Advanced layer management with supernatural powers</p>
+                <ul class="feature-list">
+                    <li>Hierarchical layer organization</li>
+                    <li>Lock and hide functionality</li>
+                    <li>Layer selection and management</li>
+                    <li>Visual layer indicators</li>
+                    <li>Drag to reorder layers</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🔮</span>
+                <h3 class="feature-title">Dark Properties</h3>
+                <p class="feature-description">Comprehensive property editing with real-time updates</p>
+                <ul class="feature-list">
+                    <li>Position and size controls</li>
+                    <li>Color picker with presets</li>
+                    <li>Typography controls</li>
+                    <li>Effects and shadows</li>
+                    <li>Real-time property sync</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">💬</span>
+                <h3 class="feature-title">Spirit Messages</h3>
+                <p class="feature-description">Collaborative commenting system for team feedback</p>
+                <ul class="feature-list">
+                    <li>Real-time commenting</li>
+                    <li>Threaded discussions</li>
+                    <li>User avatars and timestamps</li>
+                    <li>Comment notifications</li>
+                    <li>Collaborative workflow</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3 class="feature-title">Spooky Effects</h3>
+                <p class="feature-description">Atmospheric effects and animations throughout</p>
+                <ul class="feature-list">
+                    <li>Floating animations</li>
+                    <li>Glow effects on hover</li>
+                    <li>Particle system</li>
+                    <li>Smooth transitions</li>
+                    <li>Halloween-themed interactions</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="screenshot-section">
+        <h2 class="screenshot-title">🖥️ Interface Preview</h2>
+        <div class="screenshot-container">
+            <div class="screenshot-mockup">
+                <div class="mockup-header">
+                    <div class="mockup-logo">💀 Spooky Design Studio 👻</div>
+                    <div class="mockup-tabs">
+                        <div class="mockup-tab">🎨 Design</div>
+                        <div class="mockup-tab">⚡ Prototype</div>
+                        <div class="mockup-tab">🔍 Inspect</div>
+                    </div>
+                </div>
+                <div class="mockup-content">
+                    <div class="mockup-sidebar">
+                        <div style="color: #8b5cf6; font-size: 0.9rem; margin-bottom: 12px;">🛠️ Cursed Tools</div>
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-bottom: 20px;">
+                            <div style="width: 24px; height: 24px; background: #8b5cf6; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">👆</div>
+                            <div style="width: 24px; height: 24px; background: #374151; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">🖼️</div>
+                            <div style="width: 24px; height: 24px; background: #374151; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">⬜</div>
+                            <div style="width: 24px; height: 24px; background: #374151; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">⭕</div>
+                        </div>
+                        <div style="color: #ff6b35; font-size: 0.9rem; margin-bottom: 8px;">🎭 Haunted Assets</div>
+                        <div style="font-size: 0.8rem; color: #94a3b8;">Components, Icons, Images</div>
+                    </div>
+                    <div class="mockup-canvas">
+                        <div class="mockup-frame">
+                            <div class="mockup-frame-header">🎃 Haunted Landing Page</div>
+                            <div class="mockup-frame-content">
+                                <div class="mockup-element">Welcome to Hell</div>
+                                <div class="mockup-element" style="width: 60%;">Enter Portal</div>
+                                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #ff6b35, #8b5cf6); border-radius: 8px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mockup-properties">
+                        <div style="color: #10b981; font-size: 0.9rem; margin-bottom: 12px;">👁️ Spirit Layers</div>
+                        <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 16px;">
+                            <div style="background: #8b5cf6; color: white; padding: 4px 8px; border-radius: 4px; margin-bottom: 4px;">🖼️ Landing Page</div>
+                            <div style="padding: 4px 8px; margin-bottom: 4px;">📝 Welcome Text</div>
+                            <div style="padding: 4px 8px; margin-bottom: 4px;">🔘 Enter Button</div>
+                        </div>
+                        <div style="color: #10b981; font-size: 0.9rem; margin-bottom: 8px;">🔮 Dark Properties</div>
+                        <div style="font-size: 0.8rem; color: #94a3b8;">Position, Colors, Effects</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="comparison-section">
+        <h2 class="comparison-title">🆚 Feature Comparison</h2>
+        <div class="comparison-table">
+            <div class="comparison-row">
+                <div class="comparison-cell comparison-header">Feature</div>
+                <div class="comparison-cell comparison-header">Spooky Design Studio</div>
+                <div class="comparison-cell comparison-header">Regular Figma</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell comparison-feature">Professional Tools</div>
+                <div class="comparison-cell"><span class="comparison-check">✅</span></div>
+                <div class="comparison-cell"><span class="comparison-check">✅</span></div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell comparison-feature">Spooky Theme</div>
+                <div class="comparison-cell"><span class="comparison-check">✅</span></div>
+                <div class="comparison-cell"><span class="comparison-cross">❌</span></div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell comparison-feature">Halloween Assets</div>
+                <div class="comparison-cell"><span class="comparison-check">✅</span></div>
+                <div class="comparison-cell"><span class="comparison-cross">❌</span></div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell comparison-feature">Atmospheric Effects</div>
+                <div class="comparison-cell"><span class="comparison-check">✅</span></div>
+                <div class="comparison-cell"><span class="comparison-cross">❌</span></div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell comparison-feature">Free to Use</div>
+                <div class="comparison-cell"><span class="comparison-check">✅</span></div>
+                <div class="comparison-cell"><span class="comparison-cross">❌</span></div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell comparison-feature">Ghostly Fun</div>
+                <div class="comparison-cell"><span class="comparison-check">✅</span></div>
+                <div class="comparison-cell"><span class="comparison-cross">❌</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 60px 20px; background: rgba(26, 26, 26, 0.8);">
+        <h2 style="font-family: 'Creepster', cursive; color: #8b5cf6; font-size: 2rem; margin-bottom: 20px;">Ready to Design with the Spirits?</h2>
+        <a href="figma-spooky.html" class="launch-btn" target="_blank">
+            👻 Enter the Design Realm
+        </a>
+    </div>
+</body>
+</html>

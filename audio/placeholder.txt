@@ -1,0 +1,11 @@
+# Audio Placeholder Files
+
+The audio files referenced in the HTML are missing. This is expected for a demo.
+The AudioManager will gracefully handle missing audio files and fall back to synthetic sounds.
+
+To add real audio files, place them in this directory:
+- whisper.mp3 / whisper.ogg
+- chains.mp3 / chains.ogg  
+- creak.mp3 / creak.ogg
+
+The builder will work without these files, just without the atmospheric sound effects.

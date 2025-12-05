@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👻 Haunted Wishify - Cursed Greeting Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Creepster&family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/wishify-designer.css">
+    <link rel="stylesheet" href="css/panel-system.css">
+</head>
+
+<body class="wishify-theme">
+    <!-- Header -->
+    <header class="designer-header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="skull">💀</span>
+                <h1 class="app-title">Haunted Wishify</h1>
+                <span class="ghost">👻</span>
+            </div>
+        </div>
+        <div class="header-center">
+            <div class="project-info">
+                <input type="text" id="project-name" value="Cursed Greeting Scroll" class="project-input">
+                <span class="save-status">⚰️ Sealed in Crypt</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button id="preview-btn" class="wishify-btn primary">
+                <span class="icon">👁️</span>
+                Summon Preview
+            </button>
+            <button id="download-btn" class="wishify-btn secondary">
+                <span class="icon">📜</span>
+                Export Scroll
+            </button>
+            <button id="share-btn" class="wishify-btn accent">
+                <span class="icon">🔗</span>
+                Cast Spell
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="designer-main">
+        <!-- Primary Panel - Icon Only -->
+        <aside class="primary-panel">
+            <div class="tool-icons">
+                <div class="tool-icon" data-category="templates" title="Templates">
+                    <span class="icon">📚</span>
+                </div>
+                <div class="tool-icon" data-category="text" title="Text">
+                    <span class="icon">🔤</span>
+                </div>
+                <div class="tool-icon" data-category="shapes" title="Shapes">
+                    <span class="icon">⬜</span>
+                </div>
+                <div class="tool-icon" data-category="emojis" title="Emojis">
+                    <span class="icon">😈</span>
+                </div>
+                <div class="tool-icon" data-category="images" title="Images">
+                    <span class="icon">🖼️</span>
+                </div>
+                <div class="tool-icon" data-category="colors" title="Colors">
+                    <span class="icon">🎨</span>
+                </div>
+                <div class="tool-icon" data-category="effects" title="Effects">
+                    <span class="icon">✨</span>
+                </div>
+                <div class="tool-icon" data-category="layers" title="Layers">
+                    <span class="icon">📋</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Collapsible Secondary Panel -->
+        <aside class="secondary-panel" id="secondary-panel">
+            <div class="panel-header">
+                <h3 id="panel-title">Select a category</h3>
+                <button class="panel-collapse" id="panel-collapse">
+                    <span class="collapse-icon">−</span>
+                </button>
+            </div>
+            <div class="panel-content" id="panel-content">
+                <div class="empty-state">
+                    <span class="empty-icon">👆</span>
+                    <p>Click a category from the left panel to see options</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Properties Panel - Right Side -->
+        <aside class="properties-panel" id="properties-panel">
+            <div class="panel-header">
+                <h3 id="properties-title">Properties</h3>
+                <button class="panel-collapse" id="properties-collapse">
+                    <span class="collapse-icon">×</span>
+                </button>
+            </div>
+            <div class="panel-content" id="properties-content">
+                <div class="empty-state">
+                    <span class="empty-icon">👆</span>
+                    <p>Click on an object to edit its properties</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Canvas Area -->
+        <div class="canvas-area">
+            <!-- Canvas Toolbar -->
+            <div class="canvas-toolbar">
+                <div class="toolbar-left">
+                    <select class="format-select">
+                        <option value="landscape">Landscape (1920x1080)</option>
+                        <option value="portrait">Portrait (1080x1920)</option>
+                        <option value="square">Square (1080x1080)</option>
+                    </select>
+                </div>
+                <div class="toolbar-center">
+                    <button class="toolbar-btn" id="zoom-out" title="Zoom Out">−</button>
+                    <span class="zoom-level">100%</span>
+                    <button class="toolbar-btn" id="zoom-in" title="Zoom In">+</button>
+                    <button class="toolbar-btn" id="fit-canvas" title="Fit Canvas">⌂</button>
+                </div>
+                <div class="toolbar-right">
+                    <button class="toolbar-btn" id="grid-toggle" title="Toggle Grid">⊞ Grid</button>
+                    <button class="toolbar-btn" id="guides-toggle" title="Toggle Guides">📏 Guides</button>
+                </div>
+            </div>
+
+            <div class="canvas-container">
+                <div class="canvas-background"></div>
+                <div id="greeting-canvas" class="greeting-canvas">
+                    <div class="drop-zone">
+                        <span class="drop-icon">🎨</span>
+                        <p>Select a template to start creating</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Preview Modal -->
+    <div class="modal hidden" id="preview-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>👁️ Preview Your Greeting</h3>
+                <button class="modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="preview-container">
+                    <div class="preview-card" id="preview-card">
+                        <!-- Canvas content will be cloned here -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="wishify-btn secondary" id="edit-more">Edit More</button>
+                <button class="wishify-btn primary" id="download-final">Download</button>
+                <button class="wishify-btn accent" id="create-book">📚 Create Book</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multi-Page Book Modal -->
+    <div class="modal hidden" id="book-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content book-modal-content">
+            <div class="modal-header">
+                <h3>📚 Create Multi-Page Book</h3>
+                <button class="modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="book-creator">
+                    <div class="pages-sidebar">
+                        <div class="pages-header">
+                            <h4>Pages</h4>
+                            <button class="add-page-btn" id="add-page">+ Add Page</button>
+                        </div>
+                        <div class="pages-list" id="pages-list">
+                            <div class="page-item active" data-page="1">
+                                <div class="page-thumbnail">
+                                    <div class="page-preview">Page 1</div>
+                                </div>
+                                <span class="page-number">Page 1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-canvas-area">
+                        <div class="book-canvas" id="book-canvas">
+                            <!-- Current page content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="wishify-btn secondary" id="close-book">Close</button>
+                <button class="wishify-btn primary" id="generate-pdf">📄 Generate PDF Book</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/wishify-designer.js"></script>
+    <script src="js/panel-manager.js"></script>
+    <script>
+        // Initialize the applications
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🎃 Initializing Haunted Wishify Designer...');
+            
+            // Initialize PanelManager
+            window.panelManager = new PanelManager();
+            
+            // Initialize WishifyDesigner
+            const designer = new WishifyDesigner();
+            
+            console.log('✅ All systems initialized successfully!');
+        });
+    </script>
+</body>
+
+</html>

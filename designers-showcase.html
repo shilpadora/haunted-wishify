@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Design Studio Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Creepster&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .showcase-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .showcase-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b9d, #c44569, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .showcase-subtitle {
+            font-size: 1.2rem;
+            color: #b8c5d6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .designers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .designer-card {
+            background: rgba(15, 52, 96, 0.8);
+            border: 1px solid #2d3748;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .designer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: #ff6b9d;
+        }
+
+        .designer-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .designer-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .designer-description {
+            color: #b8c5d6;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .designer-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .designer-features li {
+            color: #8892b0;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .designer-features li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+        }
+
+        .designer-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .designer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .spooky-btn {
+            background: linear-gradient(135deg, #ff6b35, #8b0000);
+        }
+
+        .spooky-btn:hover {
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .retro-btn {
+            background: linear-gradient(135deg, #00ff00, #008000);
+        }
+
+        .retro-btn:hover {
+            box-shadow: 0 8px 20px rgba(0, 255, 0, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 80px;
+            color: #8892b0;
+        }
+
+        @media (max-width: 768px) {
+            .designers-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .showcase-title {
+                font-size: 2rem;
+            }
+            
+            .designer-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="showcase-header">
+        <h1 class="showcase-title">🎨 Design Studio Showcase</h1>
+        <p class="showcase-subtitle">
+            Explore our collection of specialized design tools, each crafted for different creative needs and occasions.
+        </p>
+    </div>
+
+    <div class="designers-grid">
+        <!-- Wishify Designer -->
+        <div class="designer-card">
+            <span class="designer-icon">✨</span>
+            <h2 class="designer-name">Wishify Designer</h2>
+            <p class="designer-description">
+                Create beautiful greeting cards for any occasion with our intuitive drag-and-drop interface.
+            </p>
+            <ul class="designer-features">
+                <li>Halloween, Birthday, Anniversary templates</li>
+                <li>Valentine's Day & Christmas designs</li>
+                <li>New Year celebration cards</li>
+                <li>Image and video template options</li>
+                <li>Easy text customization</li>
+                <li>Multiple export formats</li>
+            </ul>
+            <a href="wishify-designer.html" class="designer-btn">
+                <span>🎉</span>
+                Start Creating
+            </a>
+        </div>
+
+        <!-- Spooky Web Builder -->
+        <div class="designer-card">
+            <span class="designer-icon">👻</span>
+            <h2 class="designer-name">Spooky Web Builder</h2>
+            <p class="designer-description">
+                Build haunting websites with our spooky-themed components and eerie effects.
+            </p>
+            <ul class="designer-features">
+                <li>Ghostly headers and buttons</li>
+                <li>Haunted forms and inputs</li>
+                <li>Phantom images and effects</li>
+                <li>Cursed text animations</li>
+                <li>Spooky sound effects</li>
+                <li>Halloween-ready templates</li>
+            </ul>
+            <a href="index.html" class="designer-btn spooky-btn">
+                <span>🎃</span>
+                Enter Portal
+            </a>
+        </div>
+
+        <!-- Figma Spooky -->
+        <div class="designer-card">
+            <span class="designer-icon">🎨</span>
+            <h2 class="designer-name">Spooky Design Studio</h2>
+            <p class="designer-description">
+                Professional design interface with spooky themes for creating detailed layouts and prototypes.
+            </p>
+            <ul class="designer-features">
+                <li>Figma-like design interface</li>
+                <li>Layer management system</li>
+                <li>Advanced property controls</li>
+                <li>Component library</li>
+                <li>Collaborative comments</li>
+                <li>Export and sharing tools</li>
+            </ul>
+            <a href="figma-spooky.html" class="designer-btn spooky-btn">
+                <span>🔮</span>
+                Design Magic
+            </a>
+        </div>
+
+        <!-- Retro Landing -->
+        <div class="designer-card">
+            <span class="designer-icon">📺</span>
+            <h2 class="designer-name">Retro Landing Builder</h2>
+            <p class="designer-description">
+                Travel back to the 90s with our nostalgic landing page builder featuring classic web aesthetics.
+            </p>
+            <ul class="designer-features">
+                <li>1990s web design aesthetics</li>
+                <li>Classic terminal styling</li>
+                <li>Retro animations and effects</li>
+                <li>Vintage color schemes</li>
+                <li>Old-school typography</li>
+                <li>Nostalgic user experience</li>
+            </ul>
+            <a href="retro-landing.html" class="designer-btn retro-btn">
+                <span>💾</span>
+                Go Retro
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Choose your creative adventure and start building something amazing! 🚀</p>
+    </div>
+</body>
+</html>

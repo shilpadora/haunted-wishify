@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Test - Spooky Web Builder</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #f8fafc;
+            font-family: Arial, sans-serif;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .test-button {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 10px auto;
+        }
+        .test-button:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+        .status {
+            background: #2d3748;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .success { border-left: 4px solid #10b981; }
+        .error { border-left: 4px solid #ef4444; }
+        .warning { border-left: 4px solid #f59e0b; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🎃 Quick Test</h1>
+        <p>Testing the fixed Spooky Web Builder</p>
+        
+        <div id="test-results" class="status">
+            <strong>Test Results:</strong><br>
+            <span id="results-text">Running tests...</span>
+        </div>
+
+        <button class="test-button" onclick="testBuilder()">
+            🏗️ Test Main Builder
+        </button>
+        
+        <button class="test-button" onclick="testRetroLanding()">
+            📺 Test Retro Landing
+        </button>
+        
+        <button class="test-button" onclick="openStatusCheck()">
+            📊 Full System Check
+        </button>
+        
+        <button class="test-button" onclick="openTemplateShowcase()">
+            🎭 View Templates
+        </button>
+        
+        <button class="test-button" onclick="openDebugBuilder()">
+            🐛 Debug Builder
+        </button>
+        
+        <button class="test-button" onclick="openSpookyDesignStudio()">
+            🎨 Spooky Design Studio
+        </button>
+    </div>
+
+    <script>
+        function updateResults(message, type = 'success') {
+            const resultsDiv = document.getElementById('test-results');
+            const resultsText = document.getElementById('results-text');
+            
+            resultsDiv.className = `status ${type}`;
+            resultsText.innerHTML = message;
+        }
+
+        function testBuilder() {
+            updateResults('Opening main builder...', 'warning');
+            
+            // Test if we can open the builder
+            try {
+                const builderWindow = window.open('index.html', '_blank');
+                if (builderWindow) {
+                    updateResults('✅ Main builder opened successfully!<br>Check the new window for drag & drop functionality.', 'success');
+                } else {
+                    updateResults('❌ Failed to open builder (popup blocked?)', 'error');
+                }
+            } catch (error) {
+                updateResults(`❌ Error opening builder: ${error.message}`, 'error');
+            }
+        }
+
+        function testRetroLanding() {
+            updateResults('Opening retro landing page...', 'warning');
+            
+            try {
+                const retroWindow = window.open('retro-landing.html', '_blank');
+                if (retroWindow) {
+                    updateResults('✅ Retro landing page opened successfully!<br>The 1995 sequence should start automatically.', 'success');
+                } else {
+                    updateResults('❌ Failed to open retro landing (popup blocked?)', 'error');
+                }
+            } catch (error) {
+                updateResults(`❌ Error opening retro landing: ${error.message}`, 'error');
+            }
+        }
+
+        function openStatusCheck() {
+            updateResults('Opening full system diagnostics...', 'warning');
+            
+            try {
+                const statusWindow = window.open('status-check.html', '_blank');
+                if (statusWindow) {
+                    updateResults('✅ System diagnostics opened!<br>Check the new window for detailed status.', 'success');
+                } else {
+                    updateResults('❌ Failed to open diagnostics (popup blocked?)', 'error');
+                }
+            } catch (error) {
+                updateResults(`❌ Error opening diagnostics: ${error.message}`, 'error');
+            }
+        }
+
+        function openTemplateShowcase() {
+            updateResults('Opening template showcase...', 'warning');
+            
+            try {
+                const showcaseWindow = window.open('template-showcase.html', '_blank');
+                if (showcaseWindow) {
+                    updateResults('✅ Template showcase opened!<br>Browse and test the spooky templates.', 'success');
+                } else {
+                    updateResults('❌ Failed to open showcase (popup blocked?)', 'error');
+                }
+            } catch (error) {
+                updateResults(`❌ Error opening showcase: ${error.message}`, 'error');
+            }
+        }
+
+        function openDebugBuilder() {
+            updateResults('Opening debug builder...', 'warning');
+            
+            try {
+                const debugWindow = window.open('debug-builder.html', '_blank');
+                if (debugWindow) {
+                    updateResults('✅ Debug builder opened!<br>Check for detailed error information.', 'success');
+                } else {
+                    updateResults('❌ Failed to open debug builder (popup blocked?)', 'error');
+                }
+            } catch (error) {
+                updateResults(`❌ Error opening debug builder: ${error.message}`, 'error');
+            }
+        }
+
+        function openSpookyDesignStudio() {
+            updateResults('Opening Spooky Design Studio...', 'warning');
+            
+            try {
+                const studioWindow = window.open('figma-spooky.html', '_blank', 'width=1400,height=900');
+                if (studioWindow) {
+                    updateResults('✅ Spooky Design Studio opened!<br>Professional Figma-like design interface with spooky theme.', 'success');
+                } else {
+                    updateResults('❌ Failed to open design studio (popup blocked?)', 'error');
+                }
+            } catch (error) {
+                updateResults(`❌ Error opening design studio: ${error.message}`, 'error');
+            }
+        }
+
+        // Run basic tests on load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateResults('✅ Page loaded successfully!<br>JavaScript is working.<br>Ready to test the builder components.', 'success');
+        });
+    </script>
+</body>
+</html>

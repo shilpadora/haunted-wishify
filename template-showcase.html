@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎃 Spooky Templates Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #0a0a0a;
+            --color-secondary: #ff6b35;
+            --color-accent: #8b5cf6;
+            --color-warning: #10b981;
+            --color-background: #1a1a1a;
+            --color-text: #f8fafc;
+            --color-text-dim: #94a3b8;
+            --color-border: #374151;
+            --glow-orange: 0 0 20px rgba(255, 107, 53, 0.5);
+            --glow-purple: 0 0 20px rgba(139, 92, 246, 0.5);
+            --glow-green: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--color-primary);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+            animation: backgroundShift 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .title {
+            font-family: 'Creepster', cursive;
+            font-size: 4rem;
+            color: var(--color-secondary);
+            text-shadow: var(--glow-orange);
+            margin-bottom: 16px;
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: var(--glow-orange); }
+            50% { text-shadow: 0 0 40px rgba(255, 107, 53, 0.8); }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--color-text-dim);
+            margin-bottom: 32px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--color-accent), #7c3aed);
+            border: 2px solid var(--color-accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-purple);
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--color-secondary), #e55a2b);
+            border-color: var(--color-secondary);
+        }
+
+        .btn.accent {
+            background: linear-gradient(135deg, var(--color-warning), #059669);
+            border-color: var(--color-warning);
+        }
+
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            padding: 60px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .template-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid var(--color-border);
+            border-radius: 16px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .template-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-accent);
+            box-shadow: var(--glow-purple);
+        }
+
+        .template-preview {
+            height: 300px;
+            background: var(--color-primary);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .template-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            transform: scale(0.3);
+            transform-origin: top left;
+            width: 333.33%;
+            height: 333.33%;
+        }
+
+        .template-info {
+            padding: 24px;
+        }
+
+        .template-title {
+            font-family: 'Creepster', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mansion-title {
+            color: #8b0000;
+            text-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+        }
+
+        .graveyard-title {
+            color: var(--color-warning);
+            text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+        }
+
+        .template-description {
+            color: var(--color-text-dim);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .template-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .template-features li {
+            padding: 4px 0;
+            color: var(--color-text-dim);
+            font-size: 0.9rem;
+        }
+
+        .template-features li::before {
+            content: '✨';
+            margin-right: 8px;
+        }
+
+        .template-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .template-actions .btn {
+            flex: 1;
+            justify-content: center;
+            min-width: 120px;
+        }
+
+        .features-section {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .features-title {
+            font-family: 'Creepster', cursive;
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            text-shadow: var(--glow-purple);
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            background: rgba(45, 55, 72, 0.3);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            border-color: var(--color-accent);
+            box-shadow: var(--glow-purple);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: var(--color-accent);
+        }
+
+        .feature-description {
+            color: var(--color-text-dim);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .templates-grid {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+            }
+            
+            .template-actions {
+                flex-direction: column;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">🎃 Spooky Templates</h1>
+        <p class="subtitle">Ready-to-use haunted website templates for your darkest projects</p>
+        <div class="nav-buttons">
+            <a href="index.html" class="btn primary">🏗️ Open Builder</a>
+            <a href="status-check.html" class="btn">📊 System Check</a>
+            <a href="quick-test.html" class="btn accent">🧪 Quick Test</a>
+        </div>
+    </div>
+
+    <div class="templates-grid">
+        <div class="template-card">
+            <div class="template-preview" onclick="openTemplate('haunted-mansion')">
+                <div style="
+                    height: 100%;
+                    background: linear-gradient(135deg, #1a0a0a 0%, #0a0a0a 100%);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    color: #8b0000;
+                    text-align: center;
+                    position: relative;
+                ">
+                    <div style="font-size: 4rem; margin-bottom: 16px;">🏚️</div>
+                    <h3 style="font-family: 'Creepster', cursive; font-size: 1.5rem; text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);">Haunted Mansion</h3>
+                    <p style="color: #666; margin-top: 8px;">Click to preview</p>
+                    <div style="
+                        position: absolute;
+                        top: 20px;
+                        left: 20px;
+                        right: 20px;
+                        height: 40px;
+                        background: rgba(10, 10, 10, 0.95);
+                        border: 1px solid #8b0000;
+                        border-radius: 4px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 0 16px;
+                        font-size: 0.8rem;
+                    ">
+                        <span>🏚️ Haunted Mansion</span>
+                        <span>Home About Gallery Contact</span>
+                    </div>
+                </div>
+            </div>
+            <div class="template-info">
+                <h3 class="template-title mansion-title">
+                    🏚️ Haunted Mansion
+                </h3>
+                <p class="template-description">
+                    A dark and mysterious website template perfect for horror-themed businesses, 
+                    haunted attractions, or gothic portfolios. Features a blood-red color scheme 
+                    and spine-chilling animations.
+                </p>
+                <ul class="template-features">
+                    <li>Responsive navigation with smooth scrolling</li>
+                    <li>Hero section with dramatic call-to-action</li>
+                    <li>About section with haunting imagery</li>
+                    <li>Interactive gallery with hover effects</li>
+                    <li>Contact form with spooky styling</li>
+                    <li>Blood-red color scheme throughout</li>
+                </ul>
+                <div class="template-actions">
+                    <button class="btn" onclick="loadInBuilder('haunted-mansion-template')">
+                        🏗️ Edit in Builder
+                    </button>
+                    <button class="btn accent" onclick="openTemplate('haunted-mansion')">
+                        👁️ Preview
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="template-card">
+            <div class="template-preview" onclick="openTemplate('graveyard-portfolio')">
+                <div style="
+                    height: 100%;
+                    background: linear-gradient(135deg, #0a1a0a 0%, #0a0a0a 100%);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    color: #10b981;
+                    text-align: center;
+                    position: relative;
+                ">
+                    <div style="font-size: 4rem; margin-bottom: 16px;">⚰️</div>
+                    <h3 style="font-family: 'Creepster', cursive; font-size: 1.5rem; text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);">Digital Graveyard</h3>
+                    <p style="color: #666; margin-top: 8px;">Click to preview</p>
+                    <div style="
+                        position: absolute;
+                        top: 20px;
+                        left: 20px;
+                        right: 20px;
+                        height: 40px;
+                        background: rgba(10, 26, 10, 0.95);
+                        border: 1px solid #10b981;
+                        border-radius: 4px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 0 16px;
+                        font-size: 0.8rem;
+                    ">
+                        <span>⚰️ Digital Graveyard</span>
+                        <span>Home About Skills Portfolio Contact</span>
+                    </div>
+                </div>
+            </div>
+            <div class="template-info">
+                <h3 class="template-title graveyard-title">
+                    ⚰️ Digital Graveyard
+                </h3>
+                <p class="template-description">
+                    A haunting portfolio template for developers, designers, and creatives who want 
+                    to showcase their work with a supernatural twist. Features a ghostly green 
+                    color scheme and ethereal animations.
+                </p>
+                <ul class="template-features">
+                    <li>Professional portfolio layout</li>
+                    <li>Skills showcase with animated cards</li>
+                    <li>Project gallery with hover effects</li>
+                    <li>About section with statistics</li>
+                    <li>Contact information display</li>
+                    <li>Ghostly green color palette</li>
+                </ul>
+                <div class="template-actions">
+                    <button class="btn" onclick="loadInBuilder('graveyard-portfolio-template')">
+                        🏗️ Edit in Builder
+                    </button>
+                    <button class="btn accent" onclick="openTemplate('graveyard-portfolio')">
+                        👁️ Preview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="features-section">
+        <h2 class="features-title">👻 Template Features</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">Fully Customizable</h3>
+                <p class="feature-description">Edit colors, text, images, and layout directly in the Spooky Web Builder</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">Responsive Design</h3>
+                <p class="feature-description">Templates look great on desktop, tablet, and mobile devices</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Interactive Elements</h3>
+                <p class="feature-description">Hover effects, smooth scrolling, and spooky animations included</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📦</div>
+                <h3 class="feature-title">Export Ready</h3>
+                <p class="feature-description">Export as complete HTML files ready for hosting</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadInBuilder(templateType) {
+            // Open the main builder and load the template
+            const builderUrl = `index.html?template=${templateType}`;
+            window.open(builderUrl, '_blank');
+        }
+
+        function openTemplate(templateName) {
+            // Create a preview of the template
+            let templateHtml = '';
+            
+            if (templateName === 'haunted-mansion') {
+                templateHtml = generateHauntedMansionPreview();
+            } else if (templateName === 'graveyard-portfolio') {
+                templateHtml = generateGraveyardPortfolioPreview();
+            }
+            
+            const previewWindow = window.open('', '_blank', 'width=1200,height=800');
+            previewWindow.document.write(templateHtml);
+            previewWindow.document.close();
+        }
+
+        function generateHauntedMansionPreview() {
+            return \`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haunted Mansion - Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 100%);
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px);
+            padding: 16px 32px; border-bottom: 2px solid #8b0000;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-family: 'Creepster', cursive; font-size: 24px; color: #8b0000; text-shadow: 0 0 20px rgba(139, 0, 0, 0.5); }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { color: #f8fafc; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #8b0000; text-shadow: 0 0 10px rgba(139, 0, 0, 0.5); }
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; position: relative;
+        }
+        .hero h1 {
+            font-family: 'Nosifer', cursive; font-size: 4rem; color: #8b0000;
+            text-shadow: 0 0 30px rgba(139, 0, 0, 0.8); margin-bottom: 16px;
+        }
+        .hero p { font-size: 1.5rem; color: #94a3b8; margin-bottom: 32px; }
+        .hero button {
+            background: linear-gradient(135deg, #8b0000, #660000); border: 2px solid #8b0000;
+            color: white; padding: 16px 32px; font-size: 1.2rem; border-radius: 8px;
+            cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+        }
+        .hero button:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(139, 0, 0, 0.5); }
+        section { padding: 100px 32px; }
+        .about { background: rgba(26, 10, 10, 0.8); text-align: center; }
+        .about h2 {
+            font-family: 'Creepster', cursive; font-size: 3rem; color: #8b0000;
+            margin-bottom: 32px; text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+        }
+        .about p { font-size: 1.2rem; line-height: 1.8; max-width: 800px; margin: 0 auto; color: #d1d5db; }
+        .preview-note {
+            position: fixed; bottom: 20px; right: 20px; background: rgba(139, 0, 0, 0.9);
+            color: white; padding: 12px 20px; border-radius: 8px; font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">🏚️ Haunted Mansion</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <section class="hero" id="home">
+        <h1>Enter if you dare...</h1>
+        <p>Welcome to the Dark Side</p>
+        <button>Explore the Mansion</button>
+    </section>
+    <section class="about" id="about">
+        <h2>About the Mansion</h2>
+        <p>This ancient mansion holds secrets from centuries past. Every room tells a story of the souls who once walked these halls. Dare to explore the mysteries that lie within these haunted walls.</p>
+    </section>
+    <div class="preview-note">
+        🎃 Template Preview - Edit in Spooky Web Builder
+    </div>
+</body>
+</html>\`;
+        }
+
+        function generateGraveyardPortfolioPreview() {
+            return \`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Graveyard - Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #0a1a0a 100%);
+            color: #f8fafc; overflow-x: hidden;
+        }
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(10, 26, 10, 0.95); backdrop-filter: blur(10px);
+            padding: 16px 32px; border-bottom: 2px solid #10b981;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-family: 'Creepster', cursive; font-size: 24px; color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { color: #f8fafc; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #10b981; text-shadow: 0 0 10px rgba(16, 185, 129, 0.5); }
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; position: relative;
+        }
+        .hero h1 {
+            font-family: 'Nosifer', cursive; font-size: 4rem; color: #10b981;
+            text-shadow: 0 0 30px rgba(16, 185, 129, 0.8); margin-bottom: 16px;
+        }
+        .hero p { font-size: 1.5rem; color: #94a3b8; margin-bottom: 32px; }
+        .hero .buttons { display: flex; gap: 16px; justify-content: center; }
+        .hero button {
+            padding: 16px 32px; font-size: 1.1rem; border-radius: 8px;
+            cursor: pointer; transition: all 0.3s ease;
+        }
+        .hero .primary {
+            background: linear-gradient(135deg, #10b981, #059669); border: 2px solid #10b981;
+            color: white; box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+        .hero .secondary {
+            background: transparent; border: 2px solid #10b981; color: #10b981;
+        }
+        .hero button:hover { transform: translateY(-2px); }
+        section { padding: 100px 32px; }
+        .about { background: rgba(10, 26, 10, 0.8); }
+        .about-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+        .about h2 {
+            font-family: 'Creepster', cursive; font-size: 3rem; color: #10b981;
+            margin-bottom: 32px; text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+        .about p { font-size: 1.2rem; line-height: 1.8; color: #d1d5db; margin-bottom: 32px; }
+        .stats { display: flex; gap: 16px; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 1.5rem; font-weight: bold; color: #10b981; }
+        .stat-label { color: #94a3b8; font-size: 0.9rem; }
+        .avatar {
+            background: rgba(0, 0, 0, 0.5); border: 2px solid #10b981; border-radius: 12px;
+            padding: 32px; text-align: center;
+        }
+        .avatar-icon { font-size: 8rem; margin-bottom: 16px; }
+        .preview-note {
+            position: fixed; bottom: 20px; right: 20px; background: rgba(16, 185, 129, 0.9);
+            color: white; padding: 12px 20px; border-radius: 8px; font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">⚰️ Digital Graveyard</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <section class="hero" id="home">
+        <h1>Welcome to My Digital Afterlife</h1>
+        <p>Where creativity never dies</p>
+        <div class="buttons">
+            <button class="primary">View My Work</button>
+            <button class="secondary">Contact Me</button>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="about-content">
+            <div>
+                <h2>About the Phantom Developer</h2>
+                <p>I am a spirit who codes beyond the veil, creating digital experiences that haunt the web. My ghostly presence brings life to pixels and breathes soul into code.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years Haunting</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Buried</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Souls Helped</div>
+                    </div>
+                </div>
+            </div>
+            <div class="avatar">
+                <div class="avatar-icon">👤</div>
+                <h3 style="color: #10b981; margin-bottom: 8px;">The Phantom Developer</h3>
+                <p style="color: #94a3b8;">Coding from beyond the veil</p>
+            </div>
+        </div>
+    </section>
+    <div class="preview-note">
+        🎃 Template Preview - Edit in Spooky Web Builder
+    </div>
+</body>
+</html>\`;
+        }
+
+        // Add some spooky effects
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add floating animation to template cards
+            const cards = document.querySelectorAll('.template-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = (index * 0.2) + 's';
+                card.style.animation = 'float 6s ease-in-out infinite';
+            });
+
+            // Add CSS for floating animation
+            const style = document.createElement('style');
+            style.textContent = \`
+                @keyframes float {
+                    0%, 100% { transform: translateY(0px); }
+                    50% { transform: translateY(-10px); }
+                }
+            \`;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

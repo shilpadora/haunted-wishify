@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Component Library</title>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #f8fafc;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .test-result {
+            background: #2d3748;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #10b981;
+        }
+        .error {
+            border-left-color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Component Library Test</h1>
+    <div id="test-results"></div>
+
+    <script src="js/core/component-library.js"></script>
+    <script>
+        function addResult(message, isError = false) {
+            const div = document.createElement('div');
+            div.className = `test-result ${isError ? 'error' : ''}`;
+            div.textContent = message;
+            document.getElementById('test-results').appendChild(div);
+        }
+
+        try {
+            // Test if ComponentLibrary class exists
+            if (typeof ComponentLibrary !== 'undefined') {
+                addResult('✅ ComponentLibrary class is defined');
+                
+                // Test if we can create an instance
+                const mockEngine = { audioManager: null };
+                const library = new ComponentLibrary(mockEngine);
+                addResult('✅ ComponentLibrary instance created successfully');
+                
+                // Test initialization
+                library.initialize();
+                addResult('✅ ComponentLibrary initialized successfully');
+                
+                // Test component types
+                const types = library.getComponentTypes();
+                addResult(`✅ Found ${types.length} component types: ${types.join(', ')}`);
+                
+                // Test specific template components
+                const templateTypes = types.filter(type => type.includes('template'));
+                addResult(`✅ Found ${templateTypes.length} template components: ${templateTypes.join(', ')}`);
+                
+            } else {
+                addResult('❌ ComponentLibrary class is not defined', true);
+            }
+        } catch (error) {
+            addResult(`❌ Error: ${error.message}`, true);
+            console.error('Component Library Test Error:', error);
+        }
+    </script>
+</body>
+</html>

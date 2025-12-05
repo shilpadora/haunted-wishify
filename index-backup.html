@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👻 Haunted Wishify - Cursed Greeting Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Creepster&family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/wishify-designer.css">
+</head>
+
+<body class="wishify-theme">
+    <!-- Header -->
+    <header class="designer-header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="skull">💀</span>
+                <h1 class="app-title">Haunted Wishify</h1>
+                <span class="ghost">�</span>
+            </div>
+        </div>
+        <div class="header-center">
+            <div class="project-info">
+                <input type="text" id="project-name" value="Cursed Greeting Scroll" class="project-input">
+                <span class="save-status">⚰️ Sealed in Crypt</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button id="preview-btn" class="wishify-btn primary">
+                <span class="icon">👁️</span>
+                Summon Preview
+            </button>
+            <button id="download-btn" class="wishify-btn secondary">
+                <span class="icon">📜</span>
+                Export Scroll
+            </button>
+            <button id="share-btn" class="wishify-btn accent">
+                <span class="icon">🔗</span>
+                Cast Spell
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="designer-main">
+        <!-- Side Navigation -->
+        <nav class="side-nav">
+            <div class="nav-item active" data-panel="templates" title="Templates">
+                <span class="nav-icon">📚</span>
+            </div>
+            <div class="nav-item" data-panel="fonts" title="Fonts">
+                <span class="nav-icon">🔤</span>
+            </div>
+            <div class="nav-item" data-panel="colors" title="Colors">
+                <span class="nav-icon">🎨</span>
+            </div>
+            <div class="nav-item" data-panel="shapes" title="Shapes">
+                <span class="nav-icon">⬜</span>
+            </div>
+            <div class="nav-item" data-panel="stickers" title="Stickers">
+                <span class="nav-icon">😈</span>
+            </div>
+            <div class="nav-item active" data-panel="templates" title="Templates">
+                <span class="nav-icon">📚</span>
+            </div>
+            <div class="nav-item" data-panel="fonts" title="Fonts">
+                <span class="nav-icon">�</sspan>
+            </div>
+            <div class="nav-item" data-panel="images" title="Images">
+                <span class="nav-icon">🖼️</span>
+            </div>
+            <div class="nav-item" data-panel="audio" title="Audio">
+                <span class="nav-icon">🎵</span>
+            </div>
+            <div class="nav-item" data-panel="effects" title="Effects">
+                <span class="nav-icon">✨</span>
+            </div>
+            <div class="nav-item" data-panel="text" title="Text">
+                <span class="nav-icon">�</span>>
+            </div>
+
+            <div class="nav-item" data-panel="colors" title="Colors">
+                <span class="nav-icon">🎨</span>
+            </div>
+            <div class="nav-item" data-panel="shapes" title="Shapes">
+                <span class="nav-icon">⬜</span>
+            </div>
+            <div class="nav-item" data-panel="stickers" title="Stickers">
+                <span class="nav-icon">😈</span>
+            </div>
+        </nav>
+
+        <!-- Collapsible Secondary Panel -->
+        <aside class="secondary-panel" id="secondary-panel">
+            <div class="panel-header">
+                <h3 id="panel-title">Templates</h3>
+                <button class="panel-collapse" id="panel-collapse">
+                    <span class="collapse-icon">◀</span>
+                </button>
+            </div>
+            <div class="panel-content" id="panel-content">
+                <!-- Content will be dynamically loaded here -->
+            </div>
+        </aside>
+
+        <!-- Content Panels -->
+        <aside class="content-panels"></aside>
+            <!-- Templates Panel -->
+            <div class="content-panel active" id="templates-panel">
+                <div class="panel-header">
+                    <h2>📚 Cursed Grimoire</h2>
+                    <div class="template-tabs">
+                        <button class="template-tab active" data-category="all">All Spells</button>
+                        <button class="template-tab" data-category="halloween">🎃 Halloween</button>
+                        <button class="template-tab" data-category="gothic">🖤 Gothic</button>
+                        <button class="template-tab" data-category="dark">🌙 Dark Magic</button>
+                        <button class="template-tab" data-category="mystical">🔮 Mystical</button>
+                        <button class="template-tab" data-category="birthday">🎂 Birthday</button>
+                        <button class="template-tab" data-category="anniversary">💕 Anniversary</button>
+                        <button class="template-tab" data-category="valentine">💝 Valentine</button>
+                        <button class="template-tab" data-category="christmas">🎄 Christmas</button>
+                        <button class="template-tab" data-category="new-year">🎊 New Year</button>
+
+                    </div>
+                </div>
+
+                <div class="panel-content">
+                    <div class="template-search">
+                        <input type="text" placeholder="Search templates..." class="search-input">
+                        <button class="search-btn">🔍</button>
+                    </div>
+
+                    <div class="template-grid" id="template-grid">
+                        <!-- Halloween Templates -->
+                        <div class="template-item" data-category="halloween" data-type="image">
+                            <div class="template-preview halloween-card">
+                                <div class="card-content">
+                                    <h3>👻 Spooky Halloween</h3>
+                                    <p>Boo-tiful wishes!</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Spooky Halloween</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="halloween" data-type="video">
+                            <div class="template-preview halloween-video">
+                                <div class="video-indicator">▶️</div>
+                                <div class="card-content">
+                                    <h3>🎃 Animated Pumpkin</h3>
+                                    <p>Moving Halloween magic</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Animated Pumpkin</span>
+                                <span class="template-type">Video Card</span>
+                            </div>
+                        </div>
+
+                        <!-- Birthday Templates -->
+                        <div class="template-item" data-category="birthday" data-type="image">
+                            <div class="template-preview birthday-card">
+                                <div class="card-content">
+                                    <h3>🎂 Happy Birthday</h3>
+                                    <p>Make a wish!</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Birthday Celebration</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="birthday" data-type="video">
+                            <div class="template-preview birthday-video">
+                                <div class="video-indicator">▶️</div>
+                                <div class="card-content">
+                                    <h3>🎉 Birthday Confetti</h3>
+                                    <p>Animated celebration</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Birthday Confetti</span>
+                                <span class="template-type">Video Card</span>
+                            </div>
+                        </div>
+
+                        <!-- Anniversary Templates -->
+                        <div class="template-item" data-category="anniversary" data-type="image">
+                            <div class="template-preview anniversary-card">
+                                <div class="card-content">
+                                    <h3>💕 Happy Anniversary</h3>
+                                    <p>Years of love</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Love Anniversary</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="anniversary" data-type="video">
+                            <div class="template-preview anniversary-video">
+                                <div class="video-indicator">▶️</div>
+                                <div class="card-content">
+                                    <h3>💖 Floating Hearts</h3>
+                                    <p>Romantic animation</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Floating Hearts</span>
+                                <span class="template-type">Video Card</span>
+                            </div>
+                        </div>
+
+                        <!-- Valentine Templates -->
+                        <div class="template-item" data-category="valentine" data-type="image">
+                            <div class="template-preview valentine-card">
+                                <div class="card-content">
+                                    <h3>💝 Be My Valentine</h3>
+                                    <p>With all my love</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Valentine Romance</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="valentine" data-type="video">
+                            <div class="template-preview valentine-video">
+                                <div class="video-indicator">▶️</div>
+                                <div class="card-content">
+                                    <h3>💘 Cupid's Arrow</h3>
+                                    <p>Love in motion</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Cupid's Arrow</span>
+                                <span class="template-type">Video Card</span>
+                            </div>
+                        </div>
+
+                        <!-- Christmas Templates -->
+                        <div class="template-item" data-category="christmas" data-type="image">
+                            <div class="template-preview christmas-card">
+                                <div class="card-content">
+                                    <h3>🎄 Merry Christmas</h3>
+                                    <p>Joy and peace</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Christmas Joy</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="christmas" data-type="video">
+                            <div class="template-preview christmas-video">
+                                <div class="video-indicator">▶️</div>
+                                <div class="card-content">
+                                    <h3>❄️ Snowing Christmas</h3>
+                                    <p>Winter wonderland</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Snowing Christmas</span>
+                                <span class="template-type">Video Card</span>
+                            </div>
+                        </div>
+
+                        <!-- New Year Templates -->
+                        <div class="template-item" data-category="new-year" data-type="image">
+                            <div class="template-preview new-year-card">
+                                <div class="card-content">
+                                    <h3>🎊 Happy New Year</h3>
+                                    <p>Fresh beginnings</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">New Year Celebration</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="new-year" data-type="video">
+                            <div class="template-preview new-year-video">
+                                <div class="video-indicator">▶️</div>
+                                <div class="card-content">
+                                    <h3>🎆 Fireworks</h3>
+                                    <p>Spectacular countdown</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Fireworks Show</span>
+                                <span class="template-type">Video Card</span>
+                            </div>
+                        </div>
+
+                        <!-- Gothic Templates -->
+                        <div class="template-item" data-category="gothic" data-type="image">
+                            <div class="template-preview gothic-card">
+                                <div class="card-content">
+                                    <h3>🖤 Gothic Romance</h3>
+                                    <p>Dark elegance</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Gothic Romance</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="gothic" data-type="video">
+                            <div class="template-preview gothic-video">
+                                <div class="video-indicator">▶️</div>
+                                <div class="card-content">
+                                    <h3>⚰️ Vampire's Kiss</h3>
+                                    <p>Eternal darkness</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Vampire's Kiss</span>
+                                <span class="template-type">Video Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="gothic" data-type="image">
+                            <div class="template-preview gothic-card-2">
+                                <div class="card-content">
+                                    <h3>🌹 Dark Rose</h3>
+                                    <p>Beauty in shadows</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Dark Rose</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <!-- Dark Magic Templates -->
+                        <div class="template-item" data-category="dark" data-type="image">
+                            <div class="template-preview dark-card">
+                                <div class="card-content">
+                                    <h3>🌙 Midnight Spell</h3>
+                                    <p>Cast in moonlight</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Midnight Spell</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="dark" data-type="video">
+                            <div class="template-preview dark-video">
+                                <div class="video-indicator">▶️</div>
+                                <div class="card-content">
+                                    <h3>🕯️ Candle Magic</h3>
+                                    <p>Flickering shadows</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Candle Magic</span>
+                                <span class="template-type">Video Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="dark" data-type="image">
+                            <div class="template-preview dark-card-2">
+                                <div class="card-content">
+                                    <h3>🦇 Night Wings</h3>
+                                    <p>Creatures of night</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Night Wings</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <!-- Mystical Templates -->
+                        <div class="template-item" data-category="mystical" data-type="image">
+                            <div class="template-preview mystical-card">
+                                <div class="card-content">
+                                    <h3>🔮 Crystal Ball</h3>
+                                    <p>See the future</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Crystal Ball</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="mystical" data-type="video">
+                            <div class="template-preview mystical-video">
+                                <div class="video-indicator">▶️</div>
+                                <div class="card-content">
+                                    <h3>✨ Starlight Magic</h3>
+                                    <p>Cosmic enchantment</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Starlight Magic</span>
+                                <span class="template-type">Video Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="mystical" data-type="image">
+                            <div class="template-preview mystical-card-2">
+                                <div class="card-content">
+                                    <h3>🌟 Celestial Wish</h3>
+                                    <p>Stars align</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Celestial Wish</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <!-- More Halloween Templates -->
+                        <div class="template-item" data-category="halloween" data-type="image">
+                            <div class="template-preview halloween-card-2">
+                                <div class="card-content">
+                                    <h3>🕷️ Spider's Web</h3>
+                                    <p>Caught in darkness</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Spider's Web</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="halloween" data-type="video">
+                            <div class="template-preview halloween-video-2">
+                                <div class="video-indicator">▶️</div>
+                                <div class="card-content">
+                                    <h3>🏚️ Haunted House</h3>
+                                    <p>Enter if you dare</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Haunted House</span>
+                                <span class="template-type">Video Card</span>
+                            </div>
+                        </div>
+
+                        <div class="template-item" data-category="halloween" data-type="image">
+                            <div class="template-preview halloween-card-3">
+                                <div class="card-content">
+                                    <h3>🌕 Full Moon</h3>
+                                    <p>Werewolf's night</p>
+                                </div>
+                            </div>
+                            <div class="template-info">
+                                <span class="template-name">Full Moon</span>
+                                <span class="template-type">Image Card</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Images Panel -->
+                <div class="content-panel" id="images-panel">
+                    <div class="panel-header">
+                        <h2>🖼️ Haunted Gallery</h2>
+                    </div>
+                    <div class="panel-content">
+                        <!-- Upload Section -->
+                        <div class="upload-section">
+                            <div class="upload-area" id="image-upload-area">
+                                <input type="file" id="image-upload" accept="image/*" multiple hidden>
+                                <div class="upload-content">
+                                    <span class="upload-icon">📸</span>
+                                    <p>Drop images here or click to upload</p>
+                                    <span class="upload-hint">PNG, JPG, GIF up to 10MB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="image-categories">
+                            <button class="category-btn active" data-img-category="sample">Sample</button>
+                            <button class="category-btn" data-img-category="uploaded">Uploaded</button>
+                            <button class="category-btn" data-img-category="backgrounds">Backgrounds</button>
+                            <button class="category-btn" data-img-category="decorations">Decorations</button>
+                        </div>
+
+                        <!-- Free Resources Links -->
+                        <div class="resources-section">
+                            <h4>🔗 Free Image Resources</h4>
+                            <div class="resource-links">
+                                <a href="https://unsplash.com/s/photos/halloween" target="_blank" class="resource-link">
+                                    <span class="resource-icon">🎃</span>
+                                    <span>Unsplash Halloween</span>
+                                </a>
+                                <a href="https://pixabay.com/images/search/spooky/" target="_blank"
+                                    class="resource-link">
+                                    <span class="resource-icon">👻</span>
+                                    <span>Pixabay Spooky</span>
+                                </a>
+                                <a href="https://pexels.com/search/gothic/" target="_blank" class="resource-link">
+                                    <span class="resource-icon">🖤</span>
+                                    <span>Pexels Gothic</span>
+                                </a>
+                            </div>
+
+                            <h4>🎬 Free Video Resources</h4>
+                            <div class="resource-links">
+                                <a href="https://pixabay.com/videos/search/halloween/" target="_blank"
+                                    class="resource-link">
+                                    <span class="resource-icon">🎃</span>
+                                    <span>Pixabay Halloween Videos</span>
+                                </a>
+                                <a href="https://pexels.com/videos/search/spooky/" target="_blank"
+                                    class="resource-link">
+                                    <span class="resource-icon">👻</span>
+                                    <span>Pexels Spooky Videos</span>
+                                </a>
+                                <a href="https://coverr.co/search?q=dark" target="_blank" class="resource-link">
+                                    <span class="resource-icon">🌙</span>
+                                    <span>Coverr Dark Videos</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="image-grid" id="image-grid">
+                            <!-- Sample Images -->
+                            <div class="image-item sample-image" data-image="spooky-bg-1" data-category="sample">
+                                <div class="image-preview"
+                                    style="background: linear-gradient(135deg, #1a0a0a, #4a0e0e);">🏚️</div>
+                                <span class="image-name">Haunted House</span>
+                            </div>
+                            <div class="image-item sample-image" data-image="spooky-bg-2" data-category="sample">
+                                <div class="image-preview"
+                                    style="background: linear-gradient(135deg, #2c2c54, #40407a);">🌙</div>
+                                <span class="image-name">Midnight Sky</span>
+                            </div>
+                            <div class="image-item sample-image" data-image="spooky-bg-3" data-category="sample">
+                                <div class="image-preview"
+                                    style="background: linear-gradient(135deg, #2f1b14, #8b4513);">🕷️</div>
+                                <span class="image-name">Spider Web</span>
+                            </div>
+                            <div class="image-item sample-image" data-image="gothic-bg-1" data-category="sample">
+                                <div class="image-preview"
+                                    style="background: linear-gradient(135deg, #2d1b69, #11052c);">⚰️</div>
+                                <span class="image-name">Gothic Cemetery</span>
+                            </div>
+                            <div class="image-item sample-image" data-image="mystical-bg-1" data-category="sample">
+                                <div class="image-preview"
+                                    style="background: linear-gradient(135deg, #6a0dad, #4b0082);">🔮</div>
+                                <span class="image-name">Crystal Cave</span>
+                            </div>
+                            <div class="image-item sample-image" data-image="dark-bg-1" data-category="sample">
+                                <div class="image-preview"
+                                    style="background: linear-gradient(135deg, #0c0c0c, #2d1b1b);">🌑</div>
+                                <span class="image-name">Dark Void</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audio Panel -->
+                <div class="content-panel" id="audio-panel">
+                    <div class="panel-header">
+                        <h2>🎵 Cursed Sounds</h2>
+                    </div>
+                    <div class="panel-content">
+                        <!-- Upload Section -->
+                        <div class="upload-section">
+                            <div class="upload-area" id="audio-upload-area">
+                                <input type="file" id="audio-upload" accept="audio/*" multiple hidden>
+                                <div class="upload-content">
+                                    <span class="upload-icon">🎵</span>
+                                    <p>Drop audio files here or click to upload</p>
+                                    <span class="upload-hint">MP3, WAV, OGG up to 25MB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="audio-categories">
+                            <button class="category-btn active" data-audio-category="sample">Sample</button>
+                            <button class="category-btn" data-audio-category="uploaded">Uploaded</button>
+                            <button class="category-btn" data-audio-category="ambient">Ambient</button>
+                            <button class="category-btn" data-audio-category="effects">Effects</button>
+                            <button class="category-btn" data-audio-category="music">Music</button>
+                        </div>
+
+                        <!-- Free Resources Links -->
+                        <div class="resources-section">
+                            <h4>🔗 Free Audio Resources</h4>
+                            <div class="resource-links">
+                                <a href="https://freesound.org/search/?q=halloween" target="_blank"
+                                    class="resource-link">
+                                    <span class="resource-icon">🎃</span>
+                                    <span>Freesound Halloween</span>
+                                </a>
+                                <a href="https://zapsplat.com/sound-effect-categories/horror/" target="_blank"
+                                    class="resource-link">
+                                    <span class="resource-icon">👻</span>
+                                    <span>Zapsplat Horror</span>
+                                </a>
+                                <a href="https://pixabay.com/music/search/spooky/" target="_blank"
+                                    class="resource-link">
+                                    <span class="resource-icon">🎶</span>
+                                    <span>Pixabay Music</span>
+                                </a>
+                                <a href="https://incompetech.com/music/royalty-free/music.html" target="_blank"
+                                    class="resource-link">
+                                    <span class="resource-icon">🎼</span>
+                                    <span>Incompetech</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="audio-list" id="audio-list">
+                            <!-- Sample Audio -->
+                            <div class="audio-item sample-audio" data-audio="spooky-wind" data-category="sample">
+                                <div class="audio-icon">🌬️</div>
+                                <div class="audio-info">
+                                    <span class="audio-name">Spooky Wind</span>
+                                    <span class="audio-duration">0:30</span>
+                                </div>
+                                <button class="play-btn">▶️</button>
+                            </div>
+                            <div class="audio-item sample-audio" data-audio="ghost-whisper" data-category="sample">
+                                <div class="audio-icon">👻</div>
+                                <div class="audio-info">
+                                    <span class="audio-name">Ghost Whisper</span>
+                                    <span class="audio-duration">0:15</span>
+                                </div>
+                                <button class="play-btn">▶️</button>
+                            </div>
+                            <div class="audio-item sample-audio" data-audio="creepy-bells" data-category="sample">
+                                <div class="audio-icon">🔔</div>
+                                <div class="audio-info">
+                                    <span class="audio-name">Creepy Bells</span>
+                                    <span class="audio-duration">0:45</span>
+                                </div>
+                                <button class="play-btn">▶️</button>
+                            </div>
+                            <div class="audio-item sample-audio" data-audio="thunder-storm" data-category="sample">
+                                <div class="audio-icon">⛈️</div>
+                                <div class="audio-info">
+                                    <span class="audio-name">Thunder Storm</span>
+                                    <span class="audio-duration">1:20</span>
+                                </div>
+                                <button class="play-btn">▶️</button>
+                            </div>
+                            <div class="audio-item sample-audio" data-audio="witch-cackle" data-category="sample">
+                                <div class="audio-icon">🧙‍♀️</div>
+                                <div class="audio-info">
+                                    <span class="audio-name">Witch Cackle</span>
+                                    <span class="audio-duration">0:08</span>
+                                </div>
+                                <button class="play-btn">▶️</button>
+                            </div>
+                            <div class="audio-item sample-audio" data-audio="organ-music" data-category="sample">
+                                <div class="audio-icon">🎹</div>
+                                <div class="audio-info">
+                                    <span class="audio-name">Gothic Organ</span>
+                                    <span class="audio-duration">2:15</span>
+                                </div>
+                                <button class="play-btn">▶️</button>
+                            </div>
+                            <div class="audio-item sample-audio" data-audio="chains-rattle" data-category="sample">
+                                <div class="audio-icon">⛓️</div>
+                                <div class="audio-info">
+                                    <span class="audio-name">Chains Rattle</span>
+                                    <span class="audio-duration">0:12</span>
+                                </div>
+                                <button class="play-btn">▶️</button>
+                            </div>
+                            <div class="audio-item sample-audio" data-audio="mystical-chimes" data-category="sample">
+                                <div class="audio-icon">🎐</div>
+                                <div class="audio-info">
+                                    <span class="audio-name">Mystical Chimes</span>
+                                    <span class="audio-duration">0:25</span>
+                                </div>
+                                <button class="play-btn">▶️</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Effects Panel -->
+                <div class="content-panel" id="effects-panel">
+                    <div class="panel-header">
+                        <h2>✨ Dark Magic</h2>
+                    </div>
+                    <div class="panel-content">
+                        <div class="effects-grid">
+                            <div class="effect-card" data-effect="floating-ghosts">
+                                <div class="effect-preview">👻</div>
+                                <span class="effect-name">Floating Ghosts</span>
+                            </div>
+                            <div class="effect-card" data-effect="falling-leaves">
+                                <div class="effect-preview">🍂</div>
+                                <span class="effect-name">Falling Leaves</span>
+                            </div>
+                            <div class="effect-card" data-effect="sparkle-trail">
+                                <div class="effect-preview">✨</div>
+                                <span class="effect-name">Sparkle Trail</span>
+                            </div>
+                            <div class="effect-card" data-effect="blood-drip">
+                                <div class="effect-preview">🩸</div>
+                                <span class="effect-name">Blood Drip</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Panel -->
+                <div class="content-panel" id="text-panel">
+                    <div class="panel-header">
+                        <h2>📝 Haunted Messages</h2>
+                        <div class="text-tabs">
+                            <button class="text-tab active" data-text-category="all">All Messages</button>
+                            <button class="text-tab" data-text-category="halloween">🎃 Halloween</button>
+                            <button class="text-tab" data-text-category="gothic">🖤 Gothic</button>
+                            <button class="text-tab" data-text-category="spooky">👻 Spooky</button>
+                            <button class="text-tab" data-text-category="birthday">🎂 Birthday</button>
+                            <button class="text-tab" data-text-category="love">💕 Love</button>
+                        </div>
+                    </div>
+
+                    <div class="panel-content">
+                        <div class="text-search">
+                            <input type="text" placeholder="Search haunted messages..." class="search-input">
+                            <button class="search-btn">🔍</button>
+                        </div>
+
+                        <div class="text-grid" id="text-grid">
+                            <!-- Halloween Messages -->
+                            <div class="text-item" data-category="halloween"
+                                data-text="Boo-tiful Halloween wishes from beyond! 👻🎃">
+                                <div class="text-preview halloween-text">
+                                    <span class="text-content">Boo-tiful Halloween wishes from beyond! 👻🎃</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Boo-tiful Wishes</span>
+                                    <span class="text-category">Halloween</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="halloween"
+                                data-text="Trick or Treat! May your night be filled with frights and delights! 🍭👹">
+                                <div class="text-preview halloween-text">
+                                    <span class="text-content">Trick or Treat! May your night be filled with frights and
+                                        delights! 🍭👹</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Trick or Treat</span>
+                                    <span class="text-category">Halloween</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="halloween"
+                                data-text="Wishing you a spine-tingling Halloween! 🕷️🌙">
+                                <div class="text-preview halloween-text">
+                                    <span class="text-content">Wishing you a spine-tingling Halloween! 🕷️🌙</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Spine-tingling</span>
+                                    <span class="text-category">Halloween</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="halloween"
+                                data-text="Have a wickedly wonderful Halloween! 🧙‍♀️✨">
+                                <div class="text-preview halloween-text">
+                                    <span class="text-content">Have a wickedly wonderful Halloween! 🧙‍♀️✨</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Wickedly Wonderful</span>
+                                    <span class="text-category">Halloween</span>
+                                </div>
+                            </div>
+
+                            <!-- Gothic Messages -->
+                            <div class="text-item" data-category="gothic"
+                                data-text="In darkness we find beauty, in shadows we find truth 🖤⚰️">
+                                <div class="text-preview gothic-text">
+                                    <span class="text-content">In darkness we find beauty, in shadows we find truth
+                                        🖤⚰️</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Dark Beauty</span>
+                                    <span class="text-category">Gothic</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="gothic"
+                                data-text="Embrace the darkness within your soul 🌑🥀">
+                                <div class="text-preview gothic-text">
+                                    <span class="text-content">Embrace the darkness within your soul 🌑🥀</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Embrace Darkness</span>
+                                    <span class="text-category">Gothic</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="gothic"
+                                data-text="Forever bound by chains of eternity 🔗💀">
+                                <div class="text-preview gothic-text">
+                                    <span class="text-content">Forever bound by chains of eternity 🔗💀</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Eternal Chains</span>
+                                    <span class="text-category">Gothic</span>
+                                </div>
+                            </div>
+
+                            <!-- Spooky Messages -->
+                            <div class="text-item" data-category="spooky"
+                                data-text="Something wicked this way comes... 👁️🕯️">
+                                <div class="text-preview spooky-text">
+                                    <span class="text-content">Something wicked this way comes... 👁️🕯️</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Wicked Comes</span>
+                                    <span class="text-category">Spooky</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="spooky"
+                                data-text="The spirits whisper your name in the wind... 👻💨">
+                                <div class="text-preview spooky-text">
+                                    <span class="text-content">The spirits whisper your name in the wind... 👻💨</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Spirit Whispers</span>
+                                    <span class="text-category">Spooky</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="spooky"
+                                data-text="Beware the shadows that follow you home 🌚👤">
+                                <div class="text-preview spooky-text">
+                                    <span class="text-content">Beware the shadows that follow you home 🌚👤</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Shadow Followers</span>
+                                    <span class="text-category">Spooky</span>
+                                </div>
+                            </div>
+
+                            <!-- Birthday Messages -->
+                            <div class="text-item" data-category="birthday"
+                                data-text="Another year older, another year spookier! Happy Birthday! 🎂👻">
+                                <div class="text-preview birthday-text">
+                                    <span class="text-content">Another year older, another year spookier! Happy
+                                        Birthday! 🎂👻</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Spooky Birthday</span>
+                                    <span class="text-category">Birthday</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="birthday"
+                                data-text="May your birthday be filled with magical moments! 🎉✨">
+                                <div class="text-preview birthday-text">
+                                    <span class="text-content">May your birthday be filled with magical moments!
+                                        🎉✨</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Magical Birthday</span>
+                                    <span class="text-category">Birthday</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="birthday"
+                                data-text="Blow out the candles and make a wish... if you dare! 🕯️🎂">
+                                <div class="text-preview birthday-text">
+                                    <span class="text-content">Blow out the candles and make a wish... if you dare!
+                                        🕯️🎂</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Dare to Wish</span>
+                                    <span class="text-category">Birthday</span>
+                                </div>
+                            </div>
+
+                            <!-- Love Messages -->
+                            <div class="text-item" data-category="love"
+                                data-text="You've cast a spell on my heart 💕🔮">
+                                <div class="text-preview love-text">
+                                    <span class="text-content">You've cast a spell on my heart 💕🔮</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Heart Spell</span>
+                                    <span class="text-category">Love</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="love"
+                                data-text="My love for you is eternal, like a vampire's kiss 🧛‍♂️💋">
+                                <div class="text-preview love-text">
+                                    <span class="text-content">My love for you is eternal, like a vampire's kiss
+                                        🧛‍♂️💋</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Eternal Love</span>
+                                    <span class="text-category">Love</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="love"
+                                data-text="Together we'll haunt this world forever 👻💕">
+                                <div class="text-preview love-text">
+                                    <span class="text-content">Together we'll haunt this world forever 👻💕</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Haunt Together</span>
+                                    <span class="text-category">Love</span>
+                                </div>
+                            </div>
+
+                            <!-- More Halloween Messages -->
+                            <div class="text-item" data-category="halloween"
+                                data-text="Enter if you dare... Happy Halloween! 🚪🔓">
+                                <div class="text-preview halloween-text">
+                                    <span class="text-content">Enter if you dare... Happy Halloween! 🚪🔓</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Enter If You Dare</span>
+                                    <span class="text-category">Halloween</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="halloween"
+                                data-text="The dead have risen to wish you well! 🧟‍♂️💀">
+                                <div class="text-preview halloween-text">
+                                    <span class="text-content">The dead have risen to wish you well! 🧟‍♂️💀</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Risen Dead</span>
+                                    <span class="text-category">Halloween</span>
+                                </div>
+                            </div>
+
+                            <!-- More Spooky Messages -->
+                            <div class="text-item" data-category="spooky"
+                                data-text="The midnight hour approaches... 🕛🌙">
+                                <div class="text-preview spooky-text">
+                                    <span class="text-content">The midnight hour approaches... 🕛🌙</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Midnight Hour</span>
+                                    <span class="text-category">Spooky</span>
+                                </div>
+                            </div>
+
+                            <div class="text-item" data-category="spooky"
+                                data-text="Can you hear the ravens calling? 🐦‍⬛📢">
+                                <div class="text-preview spooky-text">
+                                    <span class="text-content">Can you hear the ravens calling? 🐦‍⬛📢</span>
+                                </div>
+                                <div class="text-info">
+                                    <span class="text-name">Ravens Calling</span>
+                                    <span class="text-category">Spooky</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fonts Panel -->
+                <div class="content-panel" id="fonts-panel"></div>
+                <div class="panel-header">
+                    <h2>🔤 Cursed Typography</h2>
+                </div>
+                <div class="panel-content">
+                    <div class="font-list">
+                        <div class="font-item" data-font="Creepster">
+                            <span class="font-preview" style="font-family: 'Creepster', cursive;">Creepster</span>
+                        </div>
+                        <div class="font-item" data-font="Dancing Script">
+                            <span class="font-preview" style="font-family: 'Dancing Script', cursive;">Dancing
+                                Script</span>
+                        </div>
+                        <div class="font-item" data-font="Playfair Display">
+                            <span class="font-preview" style="font-family: 'Playfair Display', serif;">Playfair
+                                Display</span>
+                        </div>
+                        <div class="font-item" data-font="Poppins">
+                            <span class="font-preview" style="font-family: 'Poppins', sans-serif;">Poppins</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colors Panel -->
+            <div class="content-panel" id="colors-panel">
+                <div class="panel-header">
+                    <h2>🎨 Blood Palette</h2>
+                </div>
+                <div class="panel-content">
+                    <div class="color-categories">
+                        <button class="category-btn active" data-color-category="spooky">Spooky</button>
+                        <button class="category-btn" data-color-category="gothic">Gothic</button>
+                        <button class="category-btn" data-color-category="mystical">Mystical</button>
+                    </div>
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #8b0000;" data-color="#8b0000" title="Blood Red">
+                        </div>
+                        <div class="color-swatch" style="background: #ff6b35;" data-color="#ff6b35"
+                            title="Spooky Orange"></div>
+                        <div class="color-swatch" style="background: #2d1b69;" data-color="#2d1b69"
+                            title="Gothic Purple"></div>
+                        <div class="color-swatch" style="background: #0c0c0c;" data-color="#0c0c0c"
+                            title="Midnight Black"></div>
+                        <div class="color-swatch" style="background: #6a0dad;" data-color="#6a0dad"
+                            title="Mystical Violet"></div>
+                        <div class="color-swatch" style="background: #4b0082;" data-color="#4b0082" title="Deep Indigo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shapes Panel -->
+            <div class="content-panel" id="shapes-panel">
+                <div class="panel-header">
+                    <h2>⬜ Cursed Shapes</h2>
+                </div>
+                <div class="panel-content">
+                    <div class="shapes-grid">
+                        <div class="shape-item" data-shape="rectangle">
+                            <div class="shape-preview">⬜</div>
+                            <span class="shape-name">Rectangle</span>
+                        </div>
+                        <div class="shape-item" data-shape="circle">
+                            <div class="shape-preview">⭕</div>
+                            <span class="shape-name">Circle</span>
+                        </div>
+                        <div class="shape-item" data-shape="triangle">
+                            <div class="shape-preview">🔺</div>
+                            <span class="shape-name">Triangle</span>
+                        </div>
+                        <div class="shape-item" data-shape="star">
+                            <div class="shape-preview">⭐</div>
+                            <span class="shape-name">Star</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stickers Panel -->
+            <div class="content-panel" id="stickers-panel">
+                <div class="panel-header">
+                    <h2>😈 Demonic Stickers</h2>
+                </div>
+                <div class="panel-content">
+                    <div class="sticker-categories">
+                        <button class="category-btn active" data-sticker-category="halloween">Halloween</button>
+                        <button class="category-btn" data-sticker-category="gothic">Gothic</button>
+                        <button class="category-btn" data-sticker-category="mystical">Mystical</button>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-item" data-sticker="ghost">👻</div>
+                        <div class="sticker-item" data-sticker="pumpkin">🎃</div>
+                        <div class="sticker-item" data-sticker="skull">💀</div>
+                        <div class="sticker-item" data-sticker="bat">🦇</div>
+                        <div class="sticker-item" data-sticker="spider">🕷️</div>
+                        <div class="sticker-item" data-sticker="candle">🕯️</div>
+                        <div class="sticker-item" data-sticker="crystal">🔮</div>
+                        <div class="sticker-item" data-sticker="moon">🌙</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Canvas Area -->
+        <section class="canvas-area">
+            <div class="canvas-toolbar">
+                <div class="toolbar-left">
+                    <div class="format-selector">
+                        <select class="format-select">
+                            <option value="square">Square (1080x1080)</option>
+                            <option value="landscape">Landscape (1920x1080)</option>
+                            <option value="portrait">Portrait (1080x1920)</option>
+                            <option value="story">Story (1080x1920)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="toolbar-center">
+                    <div class="zoom-controls">
+                        <button class="zoom-btn" id="zoom-out">-</button>
+                        <span class="zoom-level">100%</span>
+                        <button class="zoom-btn" id="zoom-in">+</button>
+                    </div>
+                    <button class="toolbar-btn" id="fit-canvas">Fit</button>
+                </div>
+
+                <div class="toolbar-right">
+                    <button class="toolbar-btn" id="grid-toggle">
+                        <span class="icon">⚏</span>
+                        Grid
+                    </button>
+                    <button class="toolbar-btn" id="guides-toggle">
+                        <span class="icon">📏</span>
+                        Guides
+                    </button>
+                </div>
+            </div>
+
+            <div class="canvas-container">
+                <div class="canvas-wrapper">
+                    <div class="greeting-canvas" id="greeting-canvas">
+                        <div class="canvas-background"></div>
+                        <div class="drop-zone">
+                            <div class="drop-message">
+                                <span class="skull-icon">💀</span>
+                                <h3>Choose a cursed template to begin your dark magic</h3>
+                                <p>Select from our haunted collection of supernatural greeting scrolls</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editor Panel -->
+        <aside class="editor-panel">
+            <div class="panel-header">
+                <h2>🔮 Dark Enchantments</h2>
+                <div class="editor-tabs">
+                    <button class="editor-tab active" data-tab="text">Cursed Text</button>
+                    <button class="editor-tab" data-tab="design">Dark Arts</button>
+                    <button class="editor-tab" data-tab="effects">Spell Effects</button>
+                </div>
+            </div>
+
+            <div class="panel-content">
+                <!-- Text Editor -->
+                <div class="editor-section" id="text-editor">
+                    <div class="text-controls">
+                        <div class="control-group">
+                            <label>Main Incantation</label>
+                            <textarea class="text-input main-text"
+                                placeholder="Cast your dark greeting spell...">Happy Birthday!</textarea>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Shadow Whisper</label>
+                            <textarea class="text-input sub-text"
+                                placeholder="Add your supernatural touch...">Hope your day is wonderful!</textarea>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Font Family</label>
+                            <select class="font-select">
+                                <option value="Dancing Script">Dancing Script</option>
+                                <option value="Playfair Display">Playfair Display</option>
+                                <option value="Poppins">Poppins</option>
+                                <option value="Arial">Arial</option>
+                                <option value="Georgia">Georgia</option>
+                            </select>
+                        </div>
+
+                        <div class="control-row">
+                            <div class="control-group">
+                                <label>Size</label>
+                                <input type="range" class="font-size-slider" min="12" max="72" value="32">
+                                <span class="size-value">32px</span>
+                            </div>
+
+                            <div class="control-group">
+                                <label>Color</label>
+                                <input type="color" class="text-color" value="#333333">
+                            </div>
+                        </div>
+
+                        <div class="text-style-controls">
+                            <button class="style-btn" data-style="bold">B</button>
+                            <button class="style-btn" data-style="italic">I</button>
+                            <button class="style-btn" data-style="underline">U</button>
+                            <button class="style-btn" data-style="center">⬛</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Editor -->
+                <div class="editor-section hidden" id="design-editor">
+                    <div class="design-controls">
+                        <div class="control-group">
+                            <label>Background</label>
+                            <div class="background-options">
+                                <button class="bg-option active" data-bg="gradient">Gradient</button>
+                                <button class="bg-option" data-bg="solid">Solid</button>
+                                <button class="bg-option" data-bg="image">Image</button>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Primary Color</label>
+                            <input type="color" class="primary-color" value="#ff6b9d">
+                        </div>
+
+                        <div class="control-group">
+                            <label>Secondary Color</label>
+                            <input type="color" class="secondary-color" value="#c44569">
+                        </div>
+
+                        <div class="control-group">
+                            <label>Border Radius</label>
+                            <input type="range" class="border-radius" min="0" max="50" value="12">
+                            <span class="radius-value">12px</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Shadow</label>
+                            <input type="range" class="shadow-intensity" min="0" max="100" value="20">
+                            <span class="shadow-value">20%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Effects Editor -->
+                <div class="editor-section hidden" id="effects-editor">
+                    <div class="effects-controls">
+                        <div class="effect-item">
+                            <div class="effect-header">
+                                <span class="effect-name">✨ Sparkle Animation</span>
+                                <button class="effect-toggle">ON</button>
+                            </div>
+                            <div class="effect-controls">
+                                <label>Intensity</label>
+                                <input type="range" class="effect-slider" min="0" max="100" value="50">
+                            </div>
+                        </div>
+
+                        <div class="effect-item">
+                            <div class="effect-header">
+                                <span class="effect-name">💫 Glow Effect</span>
+                                <button class="effect-toggle">OFF</button>
+                            </div>
+                            <div class="effect-controls">
+                                <label>Glow Color</label>
+                                <input type="color" class="glow-color" value="#ffffff">
+                            </div>
+                        </div>
+
+                        <div class="effect-item">
+                            <div class="effect-header">
+                                <span class="effect-name">🎭 Text Shadow</span>
+                                <button class="effect-toggle">ON</button>
+                            </div>
+                            <div class="effect-controls">
+                                <label>Shadow Distance</label>
+                                <input type="range" class="shadow-distance" min="0" max="20" value="2">
+                            </div>
+                        </div>
+
+                        <div class="effect-item">
+                            <div class="effect-header">
+                                <span class="effect-name">🌈 Rainbow Text</span>
+                                <button class="effect-toggle">OFF</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Drawing Toolbar -->
+        <div class="drawing-toolbar">
+            <div class="toolbar-section">
+                <div class="tool-group">
+                    <button class="tool-btn active" data-tool="select" title="Select Tool">
+                        <span class="tool-icon">↖️</span>
+                    </button>
+                    <button class="tool-btn" data-tool="hand" title="Hand Tool">
+                        <span class="tool-icon">✋</span>
+                    </button>
+                </div>
+
+                <div class="tool-separator"></div>
+
+                <div class="tool-group">
+                    <button class="tool-btn" data-tool="rectangle" title="Rectangle">
+                        <span class="tool-icon">⬜</span>
+                    </button>
+                    <button class="tool-btn" data-tool="circle" title="Circle">
+                        <span class="tool-icon">⭕</span>
+                    </button>
+                    <button class="tool-btn" data-tool="triangle" title="Triangle">
+                        <span class="tool-icon">🔺</span>
+                    </button>
+                    <button class="tool-btn" data-tool="star" title="Star">
+                        <span class="tool-icon">⭐</span>
+                    </button>
+                    <button class="tool-btn" data-tool="heart" title="Heart">
+                        <span class="tool-icon">💖</span>
+                    </button>
+                </div>
+
+                <div class="tool-separator"></div>
+
+                <div class="tool-group">
+                    <button class="tool-btn" data-tool="pen" title="Pen Tool">
+                        <span class="tool-icon">✏️</span>
+                    </button>
+                    <button class="tool-btn" data-tool="brush" title="Brush">
+                        <span class="tool-icon">🖌️</span>
+                    </button>
+                    <button class="tool-btn" data-tool="line" title="Line">
+                        <span class="tool-icon">📏</span>
+                    </button>
+                    <button class="tool-btn" data-tool="arrow" title="Arrow">
+                        <span class="tool-icon">➡️</span>
+                    </button>
+                </div>
+
+                <div class="tool-separator"></div>
+
+                <div class="tool-group">
+                    <button class="tool-btn" data-tool="text" title="Text Tool">
+                        <span class="tool-icon">🔤</span>
+                    </button>
+                    <button class="tool-btn" data-tool="image" title="Image">
+                        <span class="tool-icon">🖼️</span>
+                    </button>
+                    <button class="tool-btn" data-tool="sticker" title="Stickers">
+                        <span class="tool-icon">😈</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="toolbar-section">
+                <div class="tool-properties">
+                    <div class="property-group">
+                        <label>Fill</label>
+                        <input type="color" class="fill-color" value="#ff6b9d" title="Fill Color">
+                    </div>
+                    <div class="property-group">
+                        <label>Stroke</label>
+                        <input type="color" class="stroke-color" value="#8b0000" title="Stroke Color">
+                    </div>
+                    <div class="property-group">
+                        <label>Width</label>
+                        <input type="range" class="stroke-width" min="0" max="20" value="2" title="Stroke Width">
+                        <span class="width-value">2px</span>
+                    </div>
+                    <div class="property-group">
+                        <label>Opacity</label>
+                        <input type="range" class="opacity-slider" min="0" max="100" value="100" title="Opacity">
+                        <span class="opacity-value">100%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toolbar-section">
+                <div class="tool-group">
+                    <button class="tool-btn" data-action="undo" title="Undo (Ctrl+Z)">
+                        <span class="tool-icon">↶</span>
+                    </button>
+                    <button class="tool-btn" data-action="redo" title="Redo (Ctrl+Shift+Z)">
+                        <span class="tool-icon">↷</span>
+                    </button>
+                    <button class="tool-btn" data-action="quick-undo" title="Undo Last Shape">
+                        <span class="tool-icon">⏪</span>
+                    </button>
+                </div>
+
+                <div class="tool-separator"></div>
+
+                <div class="tool-group">
+                    <button class="tool-btn" data-action="delete" title="Delete Selected (Del)">
+                        <span class="tool-icon">🗑️</span>
+                    </button>
+                    <button class="tool-btn" data-action="duplicate" title="Duplicate Selected">
+                        <span class="tool-icon">📋</span>
+                    </button>
+                    <button class="tool-btn" data-action="clear-all" title="Clear All">
+                        <span class="tool-icon">🧹</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Preview Modal -->
+    <div class="modal hidden" id="preview-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Preview Your Greeting</h3>
+                <button class="modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="preview-container">
+                    <div class="preview-card" id="preview-card">
+                        <!-- Preview content will be generated here -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="wishify-btn secondary" id="edit-more">Edit More</button>
+                <button class="wishify-btn primary" id="download-final">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/wishify-designer.js"></script>
+</body>
+
+</html>

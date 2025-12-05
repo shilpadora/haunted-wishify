@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎃 Debug Spooky Web Builder</title>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #f8fafc;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .debug-log {
+            background: #2d3748;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 14px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        .warning { color: #f59e0b; }
+        .info { color: #3b82f6; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Debug Spooky Web Builder</h1>
+    <div id="debug-log" class="debug-log"></div>
+    <button onclick="testBuilder()" style="background: #ff6b35; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; margin: 10px 0;">
+        Test Builder Initialization
+    </button>
+
+    <script>
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('debug-log');
+            const entry = document.createElement('div');
+            entry.className = type;
+            entry.textContent = `${new Date().toLocaleTimeString()} - ${message}`;
+            logDiv.appendChild(entry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(message);
+        }
+
+        log('Starting debug session...', 'info');
+
+        // Test script loading
+        function testScriptLoading() {
+            log('Testing script availability...', 'info');
+            
+            const scripts = [
+                'ComponentLibrary',
+                'CanvasManager', 
+                'EffectsEngine',
+                'AudioManager',
+                'ExportSystem',
+                'BuilderEngine'
+            ];
+
+            scripts.forEach(scriptName => {
+                if (typeof window[scriptName] !== 'undefined') {
+                    log(`✅ ${scriptName} is available`, 'success');
+                } else {
+                    log(`❌ ${scriptName} is NOT available`, 'error');
+                }
+            });
+        }
+
+        function testBuilder() {
+            log('Testing builder initialization...', 'info');
+            testScriptLoading();
+            
+            try {
+                if (typeof BuilderEngine !== 'undefined') {
+                    log('Creating BuilderEngine instance...', 'info');
+                    const engine = new BuilderEngine();
+                    log('✅ BuilderEngine created successfully', 'success');
+                    
+                    log('Attempting to initialize...', 'info');
+                    engine.initialize().then(() => {
+                        log('✅ BuilderEngine initialized successfully', 'success');
+                    }).catch(error => {
+                        log(`❌ BuilderEngine initialization failed: ${error.message}`, 'error');
+                    });
+                } else {
+                    log('❌ BuilderEngine class not found', 'error');
+                }
+            } catch (error) {
+                log(`❌ Error creating BuilderEngine: ${error.message}`, 'error');
+            }
+        }
+
+        // Load scripts one by one and test
+        const scriptUrls = [
+            'js/core/canvas-manager.js',
+            'js/core/component-library.js', 
+            'js/core/effects-engine.js',
+            'js/core/audio-manager.js',
+            'js/core/export-system.js',
+            'js/core/builder-engine.js'
+        ];
+
+        let loadedScripts = 0;
+
+        function loadScript(url) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = url;
+                script.onload = () => {
+                    log(`✅ Loaded: ${url}`, 'success');
+                    loadedScripts++;
+                    resolve();
+                };
+                script.onerror = () => {
+                    log(`❌ Failed to load: ${url}`, 'error');
+                    reject(new Error(`Failed to load ${url}`));
+                };
+                document.head.appendChild(script);
+            });
+        }
+
+        // Load scripts sequentially
+        async function loadAllScripts() {
+            log('Loading scripts sequentially...', 'info');
+            
+            for (const url of scriptUrls) {
+                try {
+                    await loadScript(url);
+                } catch (error) {
+                    log(`Script loading error: ${error.message}`, 'error');
+                }
+            }
+            
+            log(`Finished loading ${loadedScripts}/${scriptUrls.length} scripts`, 'info');
+            testScriptLoading();
+        }
+
+        // Start loading
+        loadAllScripts();
+    </script>
+</body>
+</html>
