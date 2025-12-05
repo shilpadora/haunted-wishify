@@ -227,7 +227,19 @@ This is a standalone project, but you can:
 
 ## 📄 License
 
-This project is open source and available under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### What this means:
+- ✅ **Commercial use** - Use in commercial projects
+- ✅ **Modification** - Modify and adapt the code
+- ✅ **Distribution** - Share and distribute freely
+- ✅ **Private use** - Use privately without restrictions
+- ✅ **Patent use** - Use any patents from contributors
+
+### Requirements:
+- 📋 **License and copyright notice** - Include the original license
+- 🚫 **Liability** - No warranty provided
+- 🚫 **Trademark use** - Trademark rights not granted
 
 ## 🎭 Credits
 

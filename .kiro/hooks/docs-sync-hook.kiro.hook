@@ -1,0 +1,20 @@
+{
+  "enabled": true,
+  "name": "Documentation Sync",
+  "description": "Monitors all JavaScript, HTML, and CSS source files for changes and automatically updates project documentation in README.md and audio/README.md to keep docs in sync with code changes",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "*.js",
+      "js/**/*.js",
+      "*.html",
+      "*.css",
+      "css/**/*.css"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Source files have been modified in this JavaScript/HTML project. Please review the changes and update the documentation accordingly. Update the main README.md file and the audio/README.md file as needed to reflect any new features, API changes, component updates, or architectural modifications. Ensure the documentation accurately describes the current state of the codebase, including any new functionality in the Haunted Wishify Designer or Spooky Web Builder applications."
+  }
+}
